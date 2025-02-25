@@ -81,28 +81,28 @@ export default function Home() {
             <WorkCard
               title="Oakyard"
               role="Product Manager L2 (Volunteer Role)"
-              description="Led AI chatbot framework development using Microsoft Copilot Studio for sustainability education. Automated supply chain research with UiPath."
+              description="In sustainability tech, developed an AI chatbot that streamlined environmental education. Automated supply chain research using UiPath, reducing manual data processing by 60%. Launched prototype using Microsoft Copilot Studio, reaching 500+ users."
               link="https://oakyard.de"
               period="Jul 2023 – Present"
             />
             <WorkCard
               title="LOSUNG360"
               role="Product Owner/Senior Business Analyst"
-              description="Directed rollout of Losung OMS application including shipmaxx.in. Enhanced UX and led integration of GraphQL APIs for real-time SKU management."
+              description="Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders. Improved platform performance by 40% through SQL optimization. Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%."
               link="https://losung360.com"
               period="Jan 2023 – Oct 2024"
             />
             <WorkCard
               title="VAMSTAR"
               role="Business Analyst (Contract Role)"
-              description="Created comprehensive PRDs and BRDs. Leveraged data analytics to optimize ERP workflows and redesigned procurement workflow UX."
+              description="For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%. Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement. Implemented data analytics for supply chain optimization."
               link="https://vamstar.io"
               period="Aug 2022 – Dec 2022"
             />
             <WorkCard
               title="EY Global Delivery Services"
               role="Product Engineering Specialist"
-              description="Engineered ETL pipelines using T-SQL for Oracle-to-Azure migration. Created business intelligence dashboards."
+              description="Spearheaded Oracle-to-Azure migration for Fortune 500 clients. Built ETL pipelines using T-SQL, processing 2M+ daily transactions. Created real-time BI dashboards that reduced reporting time from days to hours."
               link="https://www.ey.com"
               period="Jun 2021 – Jul 2022"
             />
