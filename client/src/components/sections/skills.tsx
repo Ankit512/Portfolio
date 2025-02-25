@@ -5,42 +5,42 @@ import { ResponsiveRadar } from '@nivo/radar';
 
 const skillCategories = [
   {
-    title: "Technical Skills",
-    skills: ["Python", "SQL", "JavaScript", "Gen AI", "ETL"],
+    title: "Product Strategy",
+    skills: ["Roadmapping", "A/B Tests", "Project Management"],
     score: 85
   },
   {
-    title: "Business & Strategy",
-    skills: ["Business Requirement", "Go-to-Market", "Competitive Analysis", "Stakeholder Management"],
+    title: "Product Design",
+    skills: ["User Stories", "User Flows", "Wireframes", "Persona Writing"],
     score: 90
   },
   {
-    title: "Tools & Platforms",
-    skills: ["Tableau", "Power BI", "Advanced Excel", "Azure", "Snowflake", "AWS Integrations", "UiPath"],
+    title: "Market & User Research",
+    skills: ["Market Analysis", "Experiment Design", "Usability Testing"],
     score: 95
   },
   {
-    title: "Process & Methodologies",
-    skills: ["Scrum", "MS Visio", "Figma", "Jira"],
+    title: "Analytics & Programming",
+    skills: ["Software Development and Management"],
     score: 88
   }
 ];
 
 const chartData = [
   {
-    "category": "Technical Skills",
+    "category": "Product Strategy",
     "value": 85,
   },
   {
-    "category": "Business & Strategy",
+    "category": "Product Design",
     "value": 90,
   },
   {
-    "category": "Tools & Platforms",
+    "category": "Market & User Research",
     "value": 95,
   },
   {
-    "category": "Process & Methodologies",
+    "category": "Analytics & Programming",
     "value": 88,
   }
 ];
