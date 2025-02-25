@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram, ExternalLink, Building2, Calendar } from "lucide-react";
 
 export default function Home() {
   return (
@@ -51,6 +51,34 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="mb-16">
+            <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
+            <h3 className="text-4xl md:text-6xl font-bold">
+              Academic Background
+            </h3>
+          </div>
+          <div className="space-y-32">
+            <EducationCard
+              institution="Purdue University"
+              degree="Master of Science (M.S.) - Engineering Management"
+              period="Aug 2020 - May 2022"
+              description="Focused on Product Management, Data Analytics, and Machine Learning applications in business."
+              logo="/images/logos/purdue.svg"
+            />
+            <EducationCard
+              institution="Hindustan College of Science and Technology"
+              degree="Bachelor of Technology (B.Tech) - Computer Science"
+              period="Aug 2016 - May 2020"
+              description="Specialized in Computer Science with focus on software development and algorithms."
+              logo="/images/logos/hindustan.svg"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Featured Project Section */}
       <section className="py-20">
         <div className="container mx-auto px-8">
@@ -65,6 +93,7 @@ export default function Home() {
             description="A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%. Led integration of GraphQL APIs for real-time SKU management."
             image="/images/placeholder.jpg"
             link="https://shipmaxx.in"
+            logo="/images/logos/shipmaxx.svg"
           />
         </div>
       </section>
@@ -85,6 +114,7 @@ export default function Home() {
               description="In sustainability tech, developed an AI chatbot that streamlined environmental education. Automated supply chain research using UiPath, reducing manual data processing by 60%. Launched prototype using Microsoft Copilot Studio, reaching 500+ users."
               link="https://oakyard.de"
               period="Jul 2023 – Present"
+              logo="/images/logos/oakyard.svg"
             />
             <WorkCard
               title="LOSUNG360"
@@ -92,6 +122,7 @@ export default function Home() {
               description="Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders. Improved platform performance by 40% through SQL optimization. Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%."
               link="https://losung360.com"
               period="Jan 2023 – Oct 2024"
+              logo="/images/logos/losung360.svg"
             />
             <WorkCard
               title="VAMSTAR"
@@ -99,6 +130,7 @@ export default function Home() {
               description="For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%. Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement. Implemented data analytics for supply chain optimization."
               link="https://vamstar.io"
               period="Aug 2022 – Dec 2022"
+              logo="/images/logos/vamstar.svg"
             />
             <WorkCard
               title="EY Global Delivery Services"
@@ -106,42 +138,8 @@ export default function Home() {
               description="Spearheaded Oracle-to-Azure migration for Fortune 500 clients. Built ETL pipelines using T-SQL, processing 2M+ daily transactions. Created real-time BI dashboards that reduced reporting time from days to hours."
               link="https://www.ey.com"
               period="Jun 2021 – Jul 2022"
+              logo="/images/logos/ey.svg"
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="py-20">
-        <div className="container mx-auto px-8">
-          <div className="max-w-4xl">
-            <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
-            <h3 className="text-4xl md:text-6xl font-bold mb-8">
-              Building products for humans
-            </h3>
-            <p className="text-xl text-neutral-400 mb-16">
-              With my startup background, I bring a lean mindset for building products fast. 
-              My psychology background uniquely connects me to building products that understand 
-              and enhance user experiences.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <SkillCard
-                title="Product Strategy"
-                items={["Roadmapping", "A/B Tests", "Project Management"]}
-              />
-              <SkillCard
-                title="Product Design"
-                items={["User Stories", "User Flows", "Wireframes", "Persona Writing"]}
-              />
-              <SkillCard
-                title="Market & User Research"
-                items={["Market Analysis", "Experiment Design", "Usability Testing"]}
-              />
-              <SkillCard
-                title="Analytics & Programming"
-                items={["Software Development", "Data Management"]}
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -186,11 +184,12 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ title, description, image, link }: { 
+function ProjectCard({ title, description, image, link, logo }: { 
   title: string; 
   description: string; 
   image: string;
   link: string;
+  logo: string;
 }) {
   return (
     <motion.div
@@ -209,22 +208,26 @@ function ProjectCard({ title, description, image, link }: {
         />
       </div>
       <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
-        <h3 className="text-3xl md:text-5xl font-bold mb-4 flex items-center gap-3">
-          {title}
-          <ExternalLink className="h-8 w-8 inline-block" />
-        </h3>
+        <div className="flex items-center gap-4 mb-4">
+          <img src={logo} alt={title} className="h-8 w-8" />
+          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3">
+            {title}
+            <ExternalLink className="h-8 w-8 inline-block" />
+          </h3>
+        </div>
         <p className="text-xl text-neutral-400">{description}</p>
       </a>
     </motion.div>
   );
 }
 
-function WorkCard({ title, role, description, link, period }: { 
+function WorkCard({ title, role, description, link, period, logo }: { 
   title: string;
   role: string;
   description: string;
   link: string;
   period: string;
+  logo: string;
 }) {
   return (
     <motion.div
@@ -235,16 +238,49 @@ function WorkCard({ title, role, description, link, period }: {
       className="group"
     >
       <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
-        <h3 className="text-3xl md:text-5xl font-bold mb-4 flex items-center gap-3">
-          {title}
-          <ExternalLink className="h-8 w-8 inline-block" />
-        </h3>
+        <div className="flex items-center gap-4 mb-4">
+          <img src={logo} alt={title} className="h-8 w-8" />
+          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3">
+            {title}
+            <ExternalLink className="h-8 w-8 inline-block" />
+          </h3>
+        </div>
         <div className="flex flex-col gap-2">
           <p className="text-xl text-purple-600">{role}</p>
           <p className="text-lg text-neutral-500">{period}</p>
           <p className="text-xl text-neutral-400 mt-2">{description}</p>
         </div>
       </a>
+    </motion.div>
+  );
+}
+
+function EducationCard({ institution, degree, period, description, logo }: {
+  institution: string;
+  degree: string;
+  period: string;
+  description: string;
+  logo: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="group"
+    >
+      <div className="flex items-center gap-4 mb-4">
+        <img src={logo} alt={institution} className="h-8 w-8" />
+        <h3 className="text-3xl md:text-5xl font-bold">
+          {institution}
+        </h3>
+      </div>
+      <div className="flex flex-col gap-2">
+        <p className="text-xl text-purple-600">{degree}</p>
+        <p className="text-lg text-neutral-500">{period}</p>
+        <p className="text-xl text-neutral-400 mt-2">{description}</p>
+      </div>
     </motion.div>
   );
 }
