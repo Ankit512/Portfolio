@@ -157,9 +157,11 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="body-md text-neutral-400">
-                  An e-commerce logistics platform that streamlines order fulfillment and inventory management. 
-                  Built with GraphQL for real-time inventory tracking and optimized SQL for handling 10k+ daily orders 
-                  with 40% improved performance.
+                  Shipmaxx is the all-in-one order management software designed to simplify shipping for growing e-commerce businesses. 
+                  Seamlessly integrating with Shopify and other online marketplaces, Shipmaxx provides a unified interface to efficiently 
+                  manage multi-channel orders. With over a decade of e-commerce expertise, Shipmaxx partners with more than 10 top courier 
+                  services, enabling deliveries to over 27,000 pin codes. Streamline your operations, reduce costs, and enhance customer 
+                  satisfaction with Shipmaxx. Take the next step in scaling your business—start shipping smarter today.
                 </p>
               </a>
             </motion.div>
