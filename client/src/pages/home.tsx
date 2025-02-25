@@ -104,6 +104,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-16"
           >
             <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
@@ -118,10 +119,11 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="group"
             >
-              <div className="aspect-[16/9] overflow-hidden mb-8 bg-neutral-900 rounded-lg">
-                <motion.div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(/images/project-abstract.svg)` }}
+              <div className="aspect-[16/9] overflow-hidden mb-8 rounded-lg">
+                <motion.img
+                  src="/attached_assets/Screenshot 2025-02-25 193011.png"
+                  alt="Shipmaxx.in Platform Interface"
+                  className="w-full h-full object-cover object-center"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                 />
