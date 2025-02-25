@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
 
 export default function Home() {
   return (
@@ -50,30 +50,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20">
+      {/* Featured Project Section */}
+      <section className="py-20">
         <div className="container mx-auto px-8">
           <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">SELECTED PROJECTS</h2>
+            <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
             <h3 className="text-4xl md:text-6xl font-bold">
-              I've built and enhanced products at various stages
+              Launched Product
+            </h3>
+          </div>
+          <ProjectCard
+            title="Shipmaxx.in"
+            description="A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%. Led integration of GraphQL APIs for real-time SKU management."
+            image="/images/placeholder.jpg"
+            link="https://shipmaxx.in"
+          />
+        </div>
+      </section>
+
+      {/* Work Experience Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="mb-16">
+            <h2 className="text-xl text-neutral-400 mb-4">WORK EXPERIENCE</h2>
+            <h3 className="text-4xl md:text-6xl font-bold">
+              Professional Journey
             </h3>
           </div>
           <div className="space-y-32">
-            <ProjectCard
-              title="Shipmaxx.in"
-              description="A comprehensive shipping and order management platform"
-              image="/images/placeholder.jpg"
+            <WorkCard
+              title="Oakyard"
+              role="Product Manager L2 (Volunteer Role)"
+              description="Led AI chatbot framework development using Microsoft Copilot Studio for sustainability education. Automated supply chain research with UiPath."
+              link="https://oakyard.de"
+              period="Jul 2023 – Present"
             />
-            <ProjectCard
-              title="AI Chatbot Framework"
-              description="Sustainability education platform using Microsoft Copilot Studio"
-              image="/images/placeholder.jpg"
+            <WorkCard
+              title="LOSUNG360"
+              role="Product Owner/Senior Business Analyst"
+              description="Directed rollout of Losung OMS application including shipmaxx.in. Enhanced UX and led integration of GraphQL APIs for real-time SKU management."
+              link="https://losung360.com"
+              period="Jan 2023 – Oct 2024"
             />
-            <ProjectCard
-              title="Supply Chain Analytics"
-              description="Automated research system using UiPath"
-              image="/images/placeholder.jpg"
+            <WorkCard
+              title="VAMSTAR"
+              role="Business Analyst (Contract Role)"
+              description="Created comprehensive PRDs and BRDs. Leveraged data analytics to optimize ERP workflows and redesigned procurement workflow UX."
+              link="https://vamstar.io"
+              period="Aug 2022 – Dec 2022"
+            />
+            <WorkCard
+              title="EY Global Delivery Services"
+              role="Product Engineering Specialist"
+              description="Engineered ETL pipelines using T-SQL for Oracle-to-Azure migration. Created business intelligence dashboards."
+              link="https://www.ey.com"
+              period="Jun 2021 – Jul 2022"
             />
           </div>
         </div>
@@ -154,7 +185,12 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ title, description, image }: { title: string; description: string; image: string }) {
+function ProjectCard({ title, description, image, link }: { 
+  title: string; 
+  description: string; 
+  image: string;
+  link: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -171,10 +207,43 @@ function ProjectCard({ title, description, image }: { title: string; description
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>
-      <h3 className="text-3xl md:text-5xl font-bold mb-4 group-hover:text-neutral-400 transition-colors">
-        {title}
-      </h3>
-      <p className="text-xl text-neutral-400">{description}</p>
+      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
+        <h3 className="text-3xl md:text-5xl font-bold mb-4 flex items-center gap-3">
+          {title}
+          <ExternalLink className="h-8 w-8 inline-block" />
+        </h3>
+        <p className="text-xl text-neutral-400">{description}</p>
+      </a>
+    </motion.div>
+  );
+}
+
+function WorkCard({ title, role, description, link, period }: { 
+  title: string;
+  role: string;
+  description: string;
+  link: string;
+  period: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="group"
+    >
+      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
+        <h3 className="text-3xl md:text-5xl font-bold mb-4 flex items-center gap-3">
+          {title}
+          <ExternalLink className="h-8 w-8 inline-block" />
+        </h3>
+        <div className="flex flex-col gap-2">
+          <p className="text-xl text-purple-600">{role}</p>
+          <p className="text-lg text-neutral-500">{period}</p>
+          <p className="text-xl text-neutral-400 mt-2">{description}</p>
+        </div>
+      </a>
     </motion.div>
   );
 }
