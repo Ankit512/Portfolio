@@ -1,31 +1,51 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
+
 export default function Hero() {
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center bg-gradient-to-b from-background to-secondary/5">
+    <section className="min-h-screen flex items-center justify-center bg-background">
       <motion.div 
-        className="container px-4 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="container px-4 max-w-5xl mx-auto"
       >
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Hi, I'm Ankit Kumar
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          A Product Manager specializing in AI Solutions and Enterprise Systems,
-          with expertise in developing data-driven products that enhance operational efficiency
-          and user experience across industries.
-        </p>
-        <div className="flex gap-4 justify-center">
-          <Button asChild>
+        <motion.div variants={item} className="mb-8">
+          <h2 className="text-lg font-medium text-muted-foreground mb-4">PRODUCT MANAGER & AI SPECIALIST</h2>
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
+            Ankit Kumar
+          </h1>
+        </motion.div>
+
+        <motion.div variants={item}>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-12">
+            Crafting AI-driven solutions and enterprise systems that transform user experiences and drive operational excellence.
+          </p>
+        </motion.div>
+
+        <motion.div variants={item} className="flex gap-6">
+          <Button size="lg" asChild className="text-lg">
             <a href="#contact">Get in Touch</a>
           </Button>
-          <Button variant="outline" asChild>
-            <a href="/resume.pdf" target="_blank">Download CV</a>
+          <Button size="lg" variant="outline" asChild className="text-lg">
+            <a href="/resume.pdf" target="_blank">View Resume</a>
           </Button>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
