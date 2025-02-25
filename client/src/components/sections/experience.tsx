@@ -35,8 +35,7 @@ const experiences = [
       "Led product transition from location tracking to B2B sales collection platform",
       "Accelerated product advancement by 25% through strategic planning",
       "Enhanced product usability increasing user satisfaction by 30%",
-      "Spearheaded GTM initiatives and refined product pitches",
-      "Coordinated between internal teams and external stakeholders"
+      "Spearheaded GTM initiatives and refined product pitches"
     ]
   },
   {

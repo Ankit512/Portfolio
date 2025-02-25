@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
 import Blog from "@/components/sections/blog";
 import Skills from "@/components/sections/skills";
+import Experience from "@/components/sections/experience";
 
 export default function Home() {
   return (
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* Skills Section */}
       <Skills />
+
+      {/* Experience Section */}
+      <Experience />
 
       {/* Work Experience Section */}
       <section className="section-spacing">
