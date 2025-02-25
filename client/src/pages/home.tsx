@@ -202,8 +202,8 @@ export default function Home() {
               achievements={[
                 "Graduated with 2:1",
                 "Selected for upcoming Innovation & Entrepreneurship Workshop",
-                "Will be joining UCD Business Society",
-                "Will be participating in Global Business Project"
+                "Winner of Business Simulation - BMGT43290 Building Sustainable Supply Chain Advantage",
+                "Runner-Up of EY Case Study competition 2023"
               ]}
             />
 
