@@ -13,6 +13,7 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Add padding for fixed header */
   }
 }
 
@@ -41,7 +42,7 @@
 }
 
 .section-spacing {
-  @apply py-32;
+  @apply py-32 pt-40; /* Increased top padding to account for fixed nav */
 }
 
 .hover-opacity {

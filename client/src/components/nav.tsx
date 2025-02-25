@@ -19,15 +19,22 @@ export default function Nav() {
 
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 100; // Offset to account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
       setIsOpen(false);
     }
   };
 
   return (
-    <nav className="fixed w-full z-50 mix-blend-difference">
+    <nav className="fixed top-0 left-0 z-50 bg-black/80 backdrop-blur-sm w-full">
       <div className="container px-8 py-6">
-        <div className="flex justify-between items-center">
+        <div className="flex items-center gap-12">
           <a 
             href="#" 
             className="text-white text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity"
@@ -38,7 +45,9 @@ export default function Nav() {
           >
             AK
           </a>
-          <div className="hidden md:flex items-center gap-12">
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
             {menuItems.map((item) => (
               <a
                 key={item.href}
@@ -50,9 +59,11 @@ export default function Nav() {
               </a>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:opacity-60 transition-opacity"
+            className="md:hidden text-white hover:opacity-60 transition-opacity ml-auto"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -60,6 +71,7 @@ export default function Nav() {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -67,22 +79,21 @@ export default function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black flex items-center justify-center"
+            className="absolute top-full left-0 w-full bg-black py-4 border-t border-neutral-800 md:hidden"
           >
-            <div className="flex flex-col items-center gap-8">
-              {menuItems.map((item) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={handleClick}
-                  className="text-3xl font-bold text-white hover:opacity-60 transition-opacity"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+            <div className="container px-8">
+              <div className="flex flex-col gap-4">
+                {menuItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleClick}
+                    className="text-lg text-white hover:opacity-60 transition-opacity"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
