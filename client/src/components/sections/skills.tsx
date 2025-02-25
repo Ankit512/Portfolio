@@ -5,52 +5,43 @@ import { ResponsiveRadar } from '@nivo/radar';
 
 const skillCategories = [
   {
-    title: "Data & Analytics",
-    skills: ["Tableau", "Power BI", "Excel", "Python", "SQL", "Azure", "Snowflake", "ETL"],
-    score: 90
-  },
-  {
-    title: "Product Management",
-    skills: ["Business Requirements", "Go-to-Market", "Competitive Analysis", "Stakeholder Management"],
+    title: "Technical Skills",
+    skills: ["Python", "SQL", "JavaScript", "Gen AI", "ETL"],
     score: 85
   },
   {
+    title: "Business & Strategy",
+    skills: ["Business Requirement", "Go-to-Market", "Competitive Analysis", "Stakeholder Management"],
+    score: 90
+  },
+  {
     title: "Tools & Platforms",
-    skills: ["Salesforce", "AWS Integrations", "MS Visio", "Figma", "Jira", "UiPath"],
-    score: 80
-  },
-  {
-    title: "Development",
-    skills: ["JavaScript", "Dataset Management", "Implementation", "Gen AI"],
-    score: 75
-  },
-  {
-    title: "Certifications",
-    skills: ["Certified Scrum Product Owner (CSPO)", "MS Azure Administrator - AZ 104"],
+    skills: ["Tableau", "Power BI", "Advanced Excel", "Azure", "Snowflake", "AWS Integrations", "UiPath"],
     score: 95
+  },
+  {
+    title: "Process & Methodologies",
+    skills: ["Scrum", "MS Visio", "Figma", "Jira"],
+    score: 88
   }
 ];
 
 const chartData = [
   {
-    "skill": "Data & Analytics",
-    "value": 90,
-  },
-  {
-    "skill": "Product Management",
+    "category": "Technical Skills",
     "value": 85,
   },
   {
-    "skill": "Tools & Platforms",
-    "value": 80,
+    "category": "Business & Strategy",
+    "value": 90,
   },
   {
-    "skill": "Development",
-    "value": 75,
-  },
-  {
-    "skill": "Certifications",
+    "category": "Tools & Platforms",
     "value": 95,
+  },
+  {
+    "category": "Process & Methodologies",
+    "value": 88,
   }
 ];
 
@@ -65,8 +56,13 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-xl text-neutral-400 mb-4">EXPERTISE</h2>
-          <h3 className="heading-lg mb-12">Skills & Proficiency</h3>
+          <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
+          <h3 className="heading-lg mb-12">Building products for humans</h3>
+          <p className="body-md max-w-2xl">
+            With my startup background, I bring a lean mindset for building products fast. My 
+            psychology background uniquely connects me to building products that understand and 
+            enhance user experiences
+          </p>
         </motion.div>
 
         <div className="grid gap-12 lg:grid-cols-2">
@@ -81,21 +77,24 @@ export default function Skills() {
             <ResponsiveRadar
               data={chartData}
               keys={['value']}
-              indexBy="skill"
+              indexBy="category"
               maxValue={100}
               margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
-              borderColor={{ theme: 'background' }}
+              borderWidth={2}
+              borderColor={{ from: 'color' }}
               gridLabelOffset={36}
               dotSize={10}
               dotColor={{ theme: 'background' }}
               dotBorderWidth={2}
-              colors={{ scheme: 'purple_blue' }}
+              colors={{ scheme: 'category10' }}
+              fillOpacity={0.25}
               blendMode="multiply"
               motionConfig="wobbly"
               theme={{
                 background: "transparent",
-                textColor: "#a3a3a3",
-                fontSize: 11,
+                text: {
+                  fill: "#a3a3a3",
+                },
                 grid: {
                   line: {
                     stroke: "#404040",
