@@ -188,8 +188,8 @@ export default function Home() {
               institution="UCD Michael Smurfit Graduate Business School"
               location="Dublin, Ireland"
               degree="MSc. Management"
-              period="Sep 2024 - Present"
-              description="Currently pursuing a Master's in Management, focusing on strategic business management and innovation. The program combines theoretical frameworks with practical business applications."
+              period="Sep 2024 - Sep 2025"
+              description="Will be pursuing a Master's in Management, with specialization in strategic business management and innovation. The program will combine theoretical frameworks with practical business applications, focusing on modern business challenges."
               logo="/images/logos/ucd.svg"
               coursework={[
                 "Business Strategy & Digital Innovation",
@@ -200,10 +200,10 @@ export default function Home() {
                 "Global Business & Market Entry"
               ]}
               achievements={[
-                "Current Grade: 2:1 (Merit)",
-                "Selected for Innovation & Entrepreneurship Workshop",
-                "Member of UCD Business Society",
-                "Participating in Global Business Project"
+                "Will be pursuing with target grade: Merit/2:1",
+                "Selected for upcoming Innovation & Entrepreneurship Workshop",
+                "Will be joining UCD Business Society",
+                "Will be participating in Global Business Project"
               ]}
             />
 
@@ -350,15 +350,15 @@ function WorkCard({ title, role, description, link, period, logo }: {
   );
 }
 
-function EducationCard({ 
-  institution, 
-  degree, 
-  period, 
-  description, 
-  logo, 
+function EducationCard({
+  institution,
+  degree,
+  period,
+  description,
+  logo,
   location,
   coursework,
-  achievements 
+  achievements
 }: {
   institution: string;
   degree: string;
