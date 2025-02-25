@@ -56,56 +56,6 @@ export default function Home() {
       {/* Experience Section */}
       <Experience />
 
-      {/* Work Experience Section */}
-      <section className="section-spacing">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-32"
-          >
-            <h2 className="text-xl text-neutral-400 mb-4">WORK EXPERIENCE</h2>
-            <h3 className="heading-lg">Professional Journey</h3>
-          </motion.div>
-
-          <div className="space-y-40">
-            <WorkCard
-              title="Oakyard"
-              role="Product Manager L2 (Volunteer Role)"
-              description="In sustainability tech, developed an AI chatbot that streamlined environmental education. Automated supply chain research using UiPath, reducing manual data processing by 60%. Launched prototype using Microsoft Copilot Studio, reaching 500+ users."
-              link="https://oakyard.de"
-              period="Jul 2023 – Present"
-              logo="/images/logos/oakyard.svg"
-            />
-            <WorkCard
-              title="LOSUNG360"
-              role="Product Owner/Senior Business Analyst"
-              description="Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders. Improved platform performance by 40% through SQL optimization. Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%."
-              link="https://losung360.com"
-              period="Jan 2023 – Oct 2024"
-              logo="/images/logos/losung360.svg"
-            />
-            <WorkCard
-              title="VAMSTAR"
-              role="Business Analyst (Contract Role)"
-              description="For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%. Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement."
-              link="https://vamstar.io"
-              period="Aug 2022 – Dec 2022"
-              logo="/images/logos/vamstar.svg"
-            />
-            <WorkCard
-              title="EY Global Delivery Services"
-              role="Product Engineering Specialist"
-              description="Spearheaded Oracle-to-Azure migration for Fortune 500 clients. Built ETL pipelines using T-SQL, processing 2M+ daily transactions. Created real-time BI dashboards that reduced reporting time from days to hours."
-              link="https://www.ey.com"
-              period="Jun 2021 – Jul 2022"
-              logo="/images/logos/ey.svg"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Featured Project Section */}
       <section className="section-spacing">
         <div className="container">
@@ -287,6 +237,22 @@ export default function Home() {
   );
 }
 
+function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; label: string }) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-neutral-400 hover:text-white transition-colors"
+      whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.2 }}
+      aria-label={label}
+    >
+      <Icon className="h-6 w-6" />
+    </motion.a>
+  );
+}
+
 function ProjectCard({ title, description, image, link, logo }: {
   title: string;
   description: string;
@@ -431,21 +397,5 @@ function EducationCard({
         )}
       </div>
     </motion.div>
-  );
-}
-
-function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; label: string }) {
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-neutral-400 hover:text-white transition-colors"
-      whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.2 }}
-      aria-label={label}
-    >
-      <Icon className="h-6 w-6" />
-    </motion.a>
   );
 }

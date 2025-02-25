@@ -4,26 +4,35 @@ import { Building2, Calendar } from "lucide-react";
 
 const experiences = [
   {
-    company: "Think-Digital",
-    location: "Chennai, India",
-    position: "Co-Founder",
-    period: "Jul 2018 – Jan 2021",
+    company: "Oakyard",
+    location: "Vohringen, Germany",
+    position: "Product Manager L2 (Volunteer Role)",
+    period: "Jul 2023 – Present",
     achievements: [
-      "Founded a startup enabler platform connecting founders with potential investors",
-      "Helped shape brand identities and conducted mock pitch sessions",
-      "Facilitated connections between startups and investors",
-      "Provided strategic guidance for early-stage startups"
+      "In sustainability tech, developed an AI chatbot that streamlined environmental education",
+      "Automated supply chain research using UiPath, reducing manual data processing by 60%",
+      "Launched prototype using Microsoft Copilot Studio, reaching 500+ users"
     ]
   },
   {
-    company: "EY Global Delivery Services",
-    location: "Chennai, India",
-    position: "Product Engineering Specialist",
-    period: "Jun 2021 – Jul 2022",
+    company: "LOSUNG360",
+    location: "Gurgaon, India",
+    position: "Product Owner/Senior Business Analyst",
+    period: "Jan 2023 – Oct 2024",
     achievements: [
-      "Spearheaded Oracle-to-Azure migration for Fortune 500 clients",
-      "Built ETL pipelines using T-SQL, processing 2M+ daily transactions",
-      "Created real-time BI dashboards that reduced reporting time from days to hours"
+      "Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders",
+      "Improved platform performance by 40% through SQL optimization",
+      "Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%"
+    ]
+  },
+  {
+    company: "VAMSTAR",
+    location: "Hyderabad, India",
+    position: "Business Analyst (Contract Role)",
+    period: "Aug 2022 – Dec 2022",
+    achievements: [
+      "For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%",
+      "Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement"
     ]
   },
   {
@@ -39,35 +48,26 @@ const experiences = [
     ]
   },
   {
-    company: "VAMSTAR",
-    location: "Hyderabad, India",
-    position: "Business Analyst (Contract Role)",
-    period: "Aug 2022 – Dec 2022",
+    company: "EY Global Delivery Services",
+    location: "Chennai, India",
+    position: "Product Engineering Specialist",
+    period: "Jun 2021 – Jul 2022",
     achievements: [
-      "For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%",
-      "Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement"
+      "Spearheaded Oracle-to-Azure migration for Fortune 500 clients",
+      "Built ETL pipelines using T-SQL, processing 2M+ daily transactions",
+      "Created real-time BI dashboards that reduced reporting time from days to hours"
     ]
   },
   {
-    company: "LOSUNG360",
-    location: "Gurgaon, India",
-    position: "Product Owner/Senior Business Analyst",
-    period: "Jan 2023 – Oct 2024",
+    company: "Think-Digital",
+    location: "Chennai, India",
+    position: "Co-Founder",
+    period: "Jul 2018 – Jan 2021",
     achievements: [
-      "Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders",
-      "Improved platform performance by 40% through SQL optimization",
-      "Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%"
-    ]
-  },
-  {
-    company: "Oakyard",
-    location: "Vohringen, Germany",
-    position: "Product Manager L2 (Volunteer Role)",
-    period: "Jul 2023 – Present",
-    achievements: [
-      "In sustainability tech, developed an AI chatbot that streamlined environmental education",
-      "Automated supply chain research using UiPath, reducing manual data processing by 60%",
-      "Launched prototype using Microsoft Copilot Studio, reaching 500+ users"
+      "Founded a startup enabler platform connecting founders with potential investors",
+      "Helped shape brand identities and conducted mock pitch sessions",
+      "Facilitated connections between startups and investors",
+      "Provided strategic guidance for early-stage startups"
     ]
   }
 ];
