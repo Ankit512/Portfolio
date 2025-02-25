@@ -6,7 +6,6 @@ export default function Nav() {
     { href: "#skills", label: "Skills" },
     { href: "#work", label: "Work" },
     { href: "#projects", label: "Projects" },
-    { href: "#about", label: "About" },
     { href: "#blog", label: "Blog" },
     { href: "#contact", label: "Contact" }
   ];
