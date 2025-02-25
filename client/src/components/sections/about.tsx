@@ -15,11 +15,13 @@ export default function About() {
           <Card>
             <CardContent className="p-6">
               <p className="text-lg leading-relaxed">
-                Professional specializing in data analytics, AI, and customer solutions across industries
-                like supply chain and healthcare for 4+ years. Expertise in launching compliant, high-impact
-                products that enhance user experience, operational efficiency, and stakeholder alignment.
-                A pragmatic problem-solver focused on strategic execution, governance standards, and leveraging
-                customer insights to drive data-driven measurable outcomes.
+                Product Manager with a strong focus on AI/ML solutions and enterprise systems, bringing 4+ years 
+                of experience in launching innovative products. Specialized in developing AI-driven applications 
+                that enhance operational efficiency and user experience. Successfully led the development of 
+                AI chatbots for sustainability education and automated research systems using modern tech stack 
+                including Microsoft Copilot Studio and UiPath. Proven track record in translating complex 
+                technical requirements into scalable solutions while ensuring alignment with business objectives 
+                and stakeholder needs.
               </p>
             </CardContent>
           </Card>

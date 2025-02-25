@@ -14,8 +14,9 @@ export default function Hero() {
           Hi, I'm Ankit Kumar
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          A Product Manager and Data Analytics professional specializing in AI and customer solutions,
-          with expertise in launching high-impact products across supply chain and healthcare industries.
+          A Product Manager specializing in AI Solutions and Enterprise Systems,
+          with expertise in developing data-driven products that enhance operational efficiency
+          and user experience across industries.
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild>
