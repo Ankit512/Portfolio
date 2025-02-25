@@ -74,7 +74,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-spacing">
+    <section id="work" className="section-spacing">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

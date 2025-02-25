@@ -6,8 +6,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: "#skills", label: "Skills" },
-    { href: "#experience", label: "Experience" },
+    { href: "#work", label: "Work" },
     { href: "#about", label: "About" },
     { href: "#blog", label: "Blog" },
     { href: "#contact", label: "Contact" }
