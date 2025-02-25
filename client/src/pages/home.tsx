@@ -127,18 +127,20 @@ export default function Home() {
           </div>
           <div className="space-y-32">
             <EducationCard
-              institution="Purdue University, West Lafayette"
-              degree="Master of Science (M.S.), Engineering Management"
-              period="Aug 2020 - May 2022"
-              description="Specialized in Product Management, Data Analytics & Machine Learning. Research Assistant at Laboratory of Entrepreneurship & Innovation. GPA: 3.56/4.0"
-              logo="/images/logos/purdue.svg"
+              institution="UCD Michael Smurfit Graduate Business School"
+              location="Dublin, Ireland"
+              degree="MSc. Management"
+              period="Sep 2024"
+              description="Currently pursuing Masters in Management with focus on business strategy and innovation. Grade: 2:1"
+              logo="/images/logos/ucd.svg"
             />
             <EducationCard
-              institution="Hindustan College of Science and Technology"
-              degree="Bachelor of Technology (B.Tech), Computer Science and Engineering"
-              period="Aug 2016 - May 2020"
-              description="Core Member of Robotics Club. Led a team of 4 in developing an IoT based Water Quality Monitoring System. GPA: 7.8/10.0"
-              logo="/images/logos/hindustan.svg"
+              institution="SRM Institute of Science and Technology"
+              location="Chennai, India"
+              degree="BTech. Computer Science and Engineering"
+              period="Jul 2020"
+              description="Completed Bachelor's in Computer Science with distinction. Grade: 78.6% (Equivalent Grade: 1:1)"
+              logo="/images/logos/srm.svg"
             />
           </div>
         </div>
@@ -255,12 +257,13 @@ function WorkCard({ title, role, description, link, period, logo }: {
   );
 }
 
-function EducationCard({ institution, degree, period, description, logo }: {
+function EducationCard({ institution, degree, period, description, logo, location }: {
   institution: string;
   degree: string;
   period: string;
   description: string;
   logo: string;
+  location?: string;
 }) {
   return (
     <motion.div
@@ -273,7 +276,7 @@ function EducationCard({ institution, degree, period, description, logo }: {
       <div className="flex items-center gap-4 mb-4">
         <img src={logo} alt={institution} className="h-8 w-8" />
         <h3 className="text-3xl md:text-5xl font-bold">
-          {institution}
+          {institution} {location && `(${location})`}
         </h3>
       </div>
       <div className="flex flex-col gap-2">
