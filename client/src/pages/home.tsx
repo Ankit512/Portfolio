@@ -51,53 +51,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Education Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-8">
-          <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
-            <h3 className="text-4xl md:text-6xl font-bold">
-              Academic Background
-            </h3>
-          </div>
-          <div className="space-y-32">
-            <EducationCard
-              institution="Purdue University"
-              degree="Master of Science (M.S.) - Engineering Management"
-              period="Aug 2020 - May 2022"
-              description="Focused on Product Management, Data Analytics, and Machine Learning applications in business."
-              logo="/images/logos/purdue.svg"
-            />
-            <EducationCard
-              institution="Hindustan College of Science and Technology"
-              degree="Bachelor of Technology (B.Tech) - Computer Science"
-              period="Aug 2016 - May 2020"
-              description="Specialized in Computer Science with focus on software development and algorithms."
-              logo="/images/logos/hindustan.svg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Project Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-8">
-          <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
-            <h3 className="text-4xl md:text-6xl font-bold">
-              Launched Product
-            </h3>
-          </div>
-          <ProjectCard
-            title="Shipmaxx.in"
-            description="A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%. Led integration of GraphQL APIs for real-time SKU management."
-            image="/images/placeholder.jpg"
-            link="https://shipmaxx.in"
-            logo="/images/logos/shipmaxx.svg"
-          />
-        </div>
-      </section>
-
       {/* Work Experience Section */}
       <section className="py-20">
         <div className="container mx-auto px-8">
@@ -139,6 +92,53 @@ export default function Home() {
               link="https://www.ey.com"
               period="Jun 2021 – Jul 2022"
               logo="/images/logos/ey.svg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Project Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="mb-16">
+            <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
+            <h3 className="text-4xl md:text-6xl font-bold">
+              Launched Product
+            </h3>
+          </div>
+          <ProjectCard
+            title="Shipmaxx.in"
+            description="A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%. Led integration of GraphQL APIs for real-time SKU management."
+            image="/images/placeholder.jpg"
+            link="https://shipmaxx.in"
+            logo="/images/logos/shipmaxx.svg"
+          />
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="mb-16">
+            <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
+            <h3 className="text-4xl md:text-6xl font-bold">
+              Academic Background
+            </h3>
+          </div>
+          <div className="space-y-32">
+            <EducationCard
+              institution="Purdue University"
+              degree="Master of Science (M.S.) - Engineering Management"
+              period="Aug 2020 - May 2022"
+              description="Focused on Product Management, Data Analytics, and Machine Learning applications in business. GPA: 3.56/4.0"
+              logo="/images/logos/purdue.svg"
+            />
+            <EducationCard
+              institution="Hindustan College of Science and Technology"
+              degree="Bachelor of Technology (B.Tech) - Computer Science"
+              period="Aug 2016 - May 2020"
+              description="Specialized in Computer Science and Engineering. GPA: 7.8/10.0"
+              logo="/images/logos/hindustan.svg"
             />
           </div>
         </div>
@@ -282,19 +282,6 @@ function EducationCard({ institution, degree, period, description, logo }: {
         <p className="text-xl text-neutral-400 mt-2">{description}</p>
       </div>
     </motion.div>
-  );
-}
-
-function SkillCard({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div className="p-8 bg-neutral-900 rounded-lg">
-      <h4 className="text-xl font-semibold mb-4 text-white">{title}</h4>
-      <ul className="space-y-2 text-neutral-400">
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
   );
 }
 
