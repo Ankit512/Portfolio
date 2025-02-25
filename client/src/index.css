@@ -10,16 +10,54 @@
   body {
     @apply font-sans antialiased bg-black text-white selection:bg-white selection:text-black;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-:root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --primary: 0 0% 100%;
-  --primary-foreground: 0 0% 0%;
-  --secondary: 0 0% 5%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 0 0% 40%;
+.container {
+  @apply max-w-screen-2xl mx-auto px-6;
+}
+
+.heading-xl {
+  @apply text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter;
+}
+
+.heading-lg {
+  @apply text-[clamp(2rem,6vw,6rem)] font-bold leading-[0.9] tracking-tighter;
+}
+
+.heading-md {
+  @apply text-[clamp(1.5rem,4vw,4rem)] font-bold leading-[0.9] tracking-tighter;
+}
+
+.body-lg {
+  @apply text-xl md:text-2xl text-neutral-400;
+}
+
+.body-md {
+  @apply text-lg md:text-xl text-neutral-400;
+}
+
+.section-spacing {
+  @apply py-32;
+}
+
+.hover-opacity {
+  @apply hover:opacity-60 transition-opacity;
+}
+
+/* Smooth reveal animation for sections */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .image-hover {
@@ -29,12 +67,4 @@
 
 .image-hover:hover {
   transform: scale(1.05);
-}
-
-.section-spacing {
-  @apply py-32;
-}
-
-.container {
-  @apply max-w-7xl mx-auto px-6;
 }
