@@ -200,7 +200,7 @@ export default function Home() {
                 "Global Business & Market Entry"
               ]}
               achievements={[
-                "Will be pursuing with target grade: Merit/2:1",
+                "Graduated with 2:1",
                 "Selected for upcoming Innovation & Entrepreneurship Workshop",
                 "Will be joining UCD Business Society",
                 "Will be participating in Global Business Project"
@@ -211,7 +211,7 @@ export default function Home() {
               institution="SRM Institute of Science and Technology"
               location="Chennai, India"
               degree="BTech. Computer Science and Engineering"
-              period="Jul 2016 - Jul 2020"
+              period="Jul 2017 - Jul 2021"
               description="Completed Bachelor's in Computer Science with distinction, specializing in software development and artificial intelligence. Developed strong foundation in computational thinking and problem-solving."
               logo="/images/logos/srm.svg"
               coursework={[
