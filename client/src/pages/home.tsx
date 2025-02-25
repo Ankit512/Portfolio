@@ -19,7 +19,7 @@ export default function Home() {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <h2 className="text-xl md:text-2xl text-neutral-400 mb-4 tracking-tight">
-                PRODUCT MANAGER
+                ANKIT KUMAR
               </h2>
             </motion.div>
 
@@ -29,8 +29,8 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
-                Building for
-                <span className="text-purple-600"> humans.</span>
+                Product Manager for
+                <span className="text-purple-600"> AI & Data</span>
               </h1>
             </motion.div>
 
@@ -40,10 +40,11 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl">
-                Currently, I'm a Product Manager for AI & Data at Intuit.
-                Former AI-startup founder and Product Management intern at Walmart.
-                From my Masters in Engineering Management, I built my technical expertise in
-                Generative AI as well as Data Strategy.
+                Product Manager with a strong focus on AI/ML solutions and enterprise systems, 
+                bringing 4+ years of experience in launching innovative products. Specialized in 
+                developing AI-driven applications that enhance operational efficiency and user 
+                experience. Successfully led the development of AI chatbots for sustainability 
+                education and automated research systems using modern tech stack.
               </p>
             </motion.div>
           </motion.div>
