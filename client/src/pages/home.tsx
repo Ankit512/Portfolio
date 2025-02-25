@@ -127,17 +127,17 @@ export default function Home() {
           </div>
           <div className="space-y-32">
             <EducationCard
-              institution="Purdue University"
-              degree="Master of Science (M.S.) - Engineering Management"
+              institution="Purdue University, West Lafayette"
+              degree="Master of Science (M.S.), Engineering Management"
               period="Aug 2020 - May 2022"
-              description="Focused on Product Management, Data Analytics, and Machine Learning applications in business. GPA: 3.56/4.0"
+              description="Specialized in Product Management, Data Analytics & Machine Learning. Research Assistant at Laboratory of Entrepreneurship & Innovation. GPA: 3.56/4.0"
               logo="/images/logos/purdue.svg"
             />
             <EducationCard
               institution="Hindustan College of Science and Technology"
-              degree="Bachelor of Technology (B.Tech) - Computer Science"
+              degree="Bachelor of Technology (B.Tech), Computer Science and Engineering"
               period="Aug 2016 - May 2020"
-              description="Specialized in Computer Science and Engineering. GPA: 7.8/10.0"
+              description="Core Member of Robotics Club. Led a team of 4 in developing an IoT based Water Quality Monitoring System. GPA: 7.8/10.0"
               logo="/images/logos/hindustan.svg"
             />
           </div>
