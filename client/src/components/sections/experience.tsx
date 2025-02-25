@@ -16,28 +16,27 @@ const experiences = [
     ]
   },
   {
-    company: "EQLFIN",
-    location: "New Delhi, India",
-    position: "Founding Member, Product",
-    period: "Apr 2022 – Jul 2022",
-    achievements: [
-      "Led product transition from location tracking to B2B sales collection",
-      "Accelerated product advancement by 25% through strategic planning",
-      "Enhanced product usability increasing user satisfaction by 30%",
-      "Spearheaded GTM initiatives and refined product pitches",
-      "Coordinated between internal teams and external stakeholders"
-    ]
-  },
-  {
     company: "EY Global Delivery Services",
     location: "Chennai, India",
     position: "Product Engineering Specialist",
     period: "Jun 2021 – Jul 2022",
     achievements: [
-      "Engineered ETL pipelines using T-SQL for Oracle-to-Azure migration",
-      "Streamlined data migration strategies for high-profile clients",
-      "Formulated data migration strategy for reporting systems",
-      "Created business intelligence dashboards"
+      "Spearheaded Oracle-to-Azure migration for Fortune 500 clients",
+      "Built ETL pipelines using T-SQL, processing 2M+ daily transactions",
+      "Created real-time BI dashboards that reduced reporting time from days to hours"
+    ]
+  },
+  {
+    company: "EQLFIN",
+    location: "New Delhi, India",
+    position: "Founding Member, Product",
+    period: "Apr 2022 – Jul 2022",
+    achievements: [
+      "Led product transition from location tracking to B2B sales collection platform",
+      "Accelerated product advancement by 25% through strategic planning",
+      "Enhanced product usability increasing user satisfaction by 30%",
+      "Spearheaded GTM initiatives and refined product pitches",
+      "Coordinated between internal teams and external stakeholders"
     ]
   },
   {
@@ -46,10 +45,8 @@ const experiences = [
     position: "Business Analyst (Contract Role)",
     period: "Aug 2022 – Dec 2022",
     achievements: [
-      "Assembled comprehensive PRDs, BRDs, and Visio diagrams",
-      "Engaged in technical analysis of system architecture",
-      "Leveraged data analytics to optimize ERP workflows",
-      "Redesigned procurement workflow UX"
+      "For a healthcare procurement platform, optimized ERP workflows reducing processing time by 30%",
+      "Developed comprehensive PRDs and redesigned procurement UX, resulting in 45% increase in user engagement"
     ]
   },
   {
@@ -58,10 +55,9 @@ const experiences = [
     position: "Product Owner/Senior Business Analyst",
     period: "Jan 2023 – Oct 2024",
     achievements: [
-      "Directed successful rollout of Losung OMS application including shipmaxx.in",
-      "Enhanced UX by re-structuring SQL database improving responsiveness by 40%",
-      "Orchestrated cross-functional collaboration for A/B testing",
-      "Led integration of GraphQL APIs for real-time SKU management"
+      "Led development of Shipmaxx.in, an e-commerce logistics platform processing 10k+ daily orders",
+      "Improved platform performance by 40% through SQL optimization",
+      "Integrated real-time inventory tracking using GraphQL, reducing sync delays by 85%"
     ]
   },
   {
@@ -70,27 +66,26 @@ const experiences = [
     position: "Product Manager L2 (Volunteer Role)",
     period: "Jul 2023 – Present",
     achievements: [
-      "Collaborated with IT and sustainability experts to design an AI chatbot framework",
-      "Launched prototype chatbot using Microsoft Copilot Studio",
-      "Automated supply chain sustainability research using UiPath",
-      "Improved chatbot usability through iterative user testing"
+      "In sustainability tech, developed an AI chatbot that streamlined environmental education",
+      "Automated supply chain research using UiPath, reducing manual data processing by 60%",
+      "Launched prototype using Microsoft Copilot Studio, reaching 500+ users"
     ]
   }
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-secondary/5">
-      <div className="container px-4">
+    <section id="experience" className="section-spacing">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-32"
         >
           <h2 className="text-xl text-neutral-400 mb-4">CAREER ROADMAP</h2>
-          <h3 className="heading-lg mb-12">Professional Growth</h3>
+          <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
         <div className="relative">
