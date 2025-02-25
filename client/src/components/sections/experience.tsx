@@ -87,11 +87,11 @@ export default function Experience() {
           <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line with responsive positioning */}
-          <div className="absolute left-[30px] md:left-1/2 top-0 bottom-0 w-0.5 bg-purple-600/20" />
+        <div className="relative pl-8">
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-purple-600/20" />
 
-          <div className="space-y-8 sm:space-y-12 md:space-y-24">
+          <div className="space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -101,36 +101,24 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Timeline dot for mobile/tablet */}
-                <div className="absolute left-[26px] top-8 md:hidden">
-                  <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 rounded-full bg-purple-600 transform -translate-x-1/2" />
-                    <div className="mt-2 text-sm text-neutral-400 whitespace-nowrap">
-                      {exp.period.split('–')[0].trim()}
-                    </div>
-                  </div>
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-8">
+                  <div className="w-4 h-4 rounded-full bg-purple-600" />
                 </div>
 
-                {/* Timeline dot for desktop */}
-                <div className="hidden md:block absolute left-1/2 top-8">
-                  <div className="flex flex-col items-center">
-                    <div className="w-4 h-4 rounded-full bg-purple-600 transform -translate-x-1/2" />
-                    <div className="mt-2 text-sm text-neutral-400 whitespace-nowrap">
-                      {exp.period.split('–')[0].trim()}
-                    </div>
-                  </div>
+                {/* Date Label */}
+                <div className="absolute left-6 top-8 transform -translate-y-1/2">
+                  <span className="text-sm text-neutral-400">
+                    {exp.period.split('–')[0].trim()}
+                  </span>
                 </div>
 
-                {/* Card container with responsive positioning */}
-                <div className={`
-                  pl-16 md:pl-0 w-full
-                  md:w-[calc(50%-2rem)]
-                  ${index % 2 === 0 ? 'md:pr-8 md:mr-auto' : 'md:pl-8 md:ml-auto'}
-                `}>
+                {/* Content Card */}
+                <div className="ml-20">
                   <Card className="bg-neutral-900/20 border border-neutral-800">
-                    <CardContent className="p-4 sm:p-6">
+                    <CardContent className="p-6">
                       <div className="mb-4">
-                        <h3 className="text-lg sm:text-xl font-semibold">{exp.position}</h3>
+                        <h3 className="text-xl font-semibold">{exp.position}</h3>
                         <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
                           <Building2 className="h-4 w-4 flex-shrink-0" />
                           <span>{exp.company}</span>
@@ -147,7 +135,7 @@ export default function Experience() {
                         {exp.achievements.map((achievement, i) => (
                           <li key={i} className="flex items-start gap-2">
                             <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                            <span className="text-neutral-400 text-sm sm:text-base">{achievement}</span>
+                            <span className="text-neutral-400">{achievement}</span>
                           </li>
                         ))}
                       </ul>
