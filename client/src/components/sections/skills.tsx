@@ -26,7 +26,6 @@ const skillCategories = [
   }
 ];
 
-// Realistic data points for someone with 3 years experience
 const chartData = [
   {
     skill: "Product Strategy",
@@ -59,10 +58,10 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8"
         >
           <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
-          <h3 className="heading-lg mb-12">Building products for humans</h3>
+          <h3 className="heading-lg mb-6">Building products for humans</h3>
           <p className="body-md max-w-2xl">
             With my startup background, I bring a lean mindset for building products fast. My 
             psychology background uniquely connects me to building products that understand and 
@@ -70,24 +69,24 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* Radar Chart */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="h-[400px]"
+            className="h-[350px] bg-neutral-900/20 rounded-lg border border-neutral-800 p-4"
           >
             <ResponsiveRadar
               data={chartData}
               keys={['value']}
               indexBy="skill"
               maxValue={100}
-              margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
+              margin={{ top: 50, right: 60, bottom: 40, left: 60 }}
               borderWidth={2}
               borderColor="rgba(147, 51, 234, 0.5)"
-              gridLabelOffset={36}
+              gridLabelOffset={24}
               dotSize={8}
               dotColor="rgba(147, 51, 234, 0.8)"
               dotBorderWidth={1}
@@ -98,17 +97,14 @@ export default function Skills() {
               gridShape="circular"
               theme={{
                 background: "transparent",
-                textColor: "#a3a3a3",
-                fontSize: 12,
+                text: {
+                  fill: "#a3a3a3",
+                  fontSize: 11
+                },
                 grid: {
                   line: {
                     stroke: "#404040",
                     strokeWidth: 1,
-                  },
-                },
-                dots: {
-                  text: {
-                    fontSize: 11,
                   },
                 },
               }}
@@ -116,7 +112,7 @@ export default function Skills() {
           </motion.div>
 
           {/* Skill Cards */}
-          <div className="grid gap-6">
+          <div className="grid gap-4">
             {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
@@ -126,8 +122,8 @@ export default function Skills() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <Card className="bg-neutral-900/20 border border-neutral-800">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">{category.title}</h3>
+                  <CardContent className="p-4">
+                    <h3 className="text-lg font-semibold mb-3">{category.title}</h3>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, i) => (
                         <Badge 
