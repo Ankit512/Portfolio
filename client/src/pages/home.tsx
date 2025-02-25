@@ -121,12 +121,16 @@ export default function Home() {
             >
               <div className="aspect-[16/9] overflow-hidden bg-neutral-900 rounded-lg border border-neutral-800">
                 <img
-                  src="./Screenshot 2025-02-25 193011.png"
+                  src="/images/projects/shipmaxx-dashboard.png"
                   alt="Shipmaxx.in Platform Interface"
                   className="w-full h-full object-cover object-center rounded-lg hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
+                    console.error('Image failed to load');
                     const target = e.target as HTMLImageElement;
                     target.src = '/images/project-abstract.svg';
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully');
                   }}
                 />
               </div>
