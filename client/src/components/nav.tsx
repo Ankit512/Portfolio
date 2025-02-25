@@ -8,6 +8,7 @@ export default function Nav() {
   const menuItems = [
     { href: "#work", label: "Work" },
     { href: "#about", label: "About" },
+    { href: "#blog", label: "Blog" },
     { href: "#contact", label: "Contact" },
   ];
 

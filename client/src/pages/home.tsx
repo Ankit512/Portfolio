@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
+import Blog from "@/components/sections/blog";
 
 export default function Home() {
   return (
@@ -202,6 +203,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      <Blog />
 
       {/* Contact Section */}
       <section id="contact" className="h-screen flex items-center">
