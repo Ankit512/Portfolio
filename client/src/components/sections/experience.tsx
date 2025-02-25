@@ -104,7 +104,7 @@ export default function Experience() {
                 {/* Timeline dot and date for mobile/tablet */}
                 <div className="absolute left-[14px] sm:left-[30px] md:hidden top-8">
                   <div className="flex flex-col items-center">
-                    <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600 transform -translate-x-1/2" />
+                    <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600 transform translate-x-[-6px] sm:translate-x-[-8px]" />
                     <div className="mt-2 text-xs sm:text-sm text-neutral-400 whitespace-nowrap">
                       {exp.period.split('–')[0].trim()}
                     </div>
@@ -112,11 +112,7 @@ export default function Experience() {
                 </div>
 
                 {/* Timeline dot and date for desktop */}
-                <div className={`
-                  hidden md:block 
-                  absolute top-8
-                  ${index % 2 === 0 ? 'right-[calc(50%)]' : 'left-[calc(50%)]'}
-                `}>
+                <div className="hidden md:block absolute left-1/2 top-8">
                   <div className="flex flex-col items-center">
                     <div className="w-4 h-4 rounded-full bg-purple-600 transform -translate-x-1/2" />
                     <div className="mt-2 text-sm text-neutral-400 whitespace-nowrap">
@@ -129,7 +125,7 @@ export default function Experience() {
                 <div className={`
                   pl-12 sm:pl-16 md:pl-0 w-full
                   md:w-[calc(50%-2rem)]
-                  ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:ml-auto'}
+                  ${index % 2 === 0 ? 'md:pr-8 md:mr-auto' : 'md:pl-8 md:ml-auto'}
                 `}>
                   <Card className="bg-neutral-900/20 border border-neutral-800">
                     <CardContent className="p-4 sm:p-6">
