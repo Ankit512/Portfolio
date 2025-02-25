@@ -102,7 +102,7 @@ export default function Experience() {
                 className="relative"
               >
                 {/* Timeline dot and date - Mobile & Tablet */}
-                <div className="absolute left-4 sm:left-8 md:hidden -top-2">
+                <div className="absolute left-4 sm:left-8 md:hidden top-8">
                   <div className="flex flex-col items-center">
                     <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-purple-600" />
                     <div className="mt-2 text-xs sm:text-sm text-neutral-400 whitespace-nowrap">
@@ -114,8 +114,8 @@ export default function Experience() {
                 {/* Timeline dot and date - Desktop */}
                 <div className={`
                   hidden md:block 
-                  absolute top-0 
-                  ${index % 2 === 0 ? 'right-[calc(50%-1rem)]' : 'left-[calc(50%-1rem)]'}
+                  absolute top-8
+                  ${index % 2 === 0 ? 'right-[calc(50%-0.125rem)]' : 'left-[calc(50%-0.125rem)]'}
                 `}>
                   <div className="flex flex-col items-center">
                     <div className="w-4 h-4 rounded-full bg-purple-600" />
