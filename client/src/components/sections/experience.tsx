@@ -81,17 +81,17 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12"
         >
           <h2 className="text-xl text-neutral-400 mb-4">CAREER ROADMAP</h2>
           <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative">
-              <Card className="bg-neutral-900/20 border border-neutral-800 mb-8">
-                <CardContent className="p-6">
+            <div key={index}>
+              <Card className="bg-neutral-900/20 border border-neutral-800 mb-2">
+                <CardContent className="p-4 sm:p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-semibold">{exp.position}</h3>
@@ -119,15 +119,14 @@ export default function Experience() {
                 </CardContent>
               </Card>
 
-              {/* Arrow after each card except the last one */}
               {index < experiences.length - 1 && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="flex justify-center mb-8"
+                  transition={{ duration: 0.2, delay: index * 0.1 }}
+                  className="flex justify-center my-2"
                 >
-                  <ArrowDown className="w-6 h-6 text-purple-600/50" />
+                  <ArrowDown className="w-5 h-5 text-purple-600/50" />
                 </motion.div>
               )}
             </div>
