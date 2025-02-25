@@ -40,8 +40,8 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="body-lg max-w-2xl"
             >
-              With my startup background, I bring a lean mindset for building products fast. 
-              My technical expertise in Generative AI and Data Strategy enables me to develop 
+              With my startup background, I bring a lean mindset for building products fast.
+              My technical expertise in Generative AI and Data Strategy enables me to develop
               impactful products utilizing machine learning, generative AI, and big data solutions.
             </motion.p>
           </motion.div>
@@ -144,10 +144,10 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-col justify-center"
             >
-              <a 
-                href="https://shipmaxx.in" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://shipmaxx.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group-hover:opacity-60 transition-opacity"
               >
                 <div className="flex items-center gap-4 mb-6">
@@ -158,10 +158,10 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="body-md text-neutral-400">
-                  Shipmaxx is the all-in-one order management software designed to simplify shipping for growing e-commerce businesses. 
-                  Seamlessly integrating with Shopify and other online marketplaces, Shipmaxx provides a unified interface to efficiently 
-                  manage multi-channel orders. With over a decade of e-commerce expertise, Shipmaxx partners with more than 10 top courier 
-                  services, enabling deliveries to over 27,000 pin codes. Streamline your operations, reduce costs, and enhance customer 
+                  Shipmaxx is the all-in-one order management software designed to simplify shipping for growing e-commerce businesses.
+                  Seamlessly integrating with Shopify and other online marketplaces, Shipmaxx provides a unified interface to efficiently
+                  manage multi-channel orders. With over a decade of e-commerce expertise, Shipmaxx partners with more than 10 top courier
+                  services, enabling deliveries to over 27,000 pin codes. Streamline your operations, reduce costs, and enhance customer
                   satisfaction with Shipmaxx. Take the next step in scaling your business—start shipping smarter today.
                 </p>
               </a>
@@ -177,28 +177,57 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-32"
+            className="mb-16"
           >
             <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
-            <h3 className="heading-lg">Academic Background</h3>
+            <h3 className="heading-lg mb-12">Academic Background</h3>
           </motion.div>
 
-          <div className="space-y-40">
+          <div className="grid grid-cols-1 gap-20">
             <EducationCard
               institution="UCD Michael Smurfit Graduate Business School"
               location="Dublin, Ireland"
               degree="MSc. Management"
-              period="Sep 2024"
-              description="Currently pursuing Masters in Management with focus on business strategy and innovation. Grade: 2:1"
+              period="Sep 2024 - Present"
+              description="Currently pursuing a Master's in Management, focusing on strategic business management and innovation. The program combines theoretical frameworks with practical business applications."
               logo="/images/logos/ucd.svg"
+              coursework={[
+                "Business Strategy & Digital Innovation",
+                "Project & Operations Management",
+                "Digital Marketing & Analytics",
+                "Financial Management & Analysis",
+                "Leadership & Organizational Behavior",
+                "Global Business & Market Entry"
+              ]}
+              achievements={[
+                "Current Grade: 2:1 (Merit)",
+                "Selected for Innovation & Entrepreneurship Workshop",
+                "Member of UCD Business Society",
+                "Participating in Global Business Project"
+              ]}
             />
+
             <EducationCard
               institution="SRM Institute of Science and Technology"
               location="Chennai, India"
               degree="BTech. Computer Science and Engineering"
-              period="Jul 2020"
-              description="Completed Bachelor's in Computer Science with distinction. Grade: 78.6% (Equivalent Grade: 1:1)"
+              period="Jul 2016 - Jul 2020"
+              description="Completed Bachelor's in Computer Science with distinction, specializing in software development and artificial intelligence. Developed strong foundation in computational thinking and problem-solving."
               logo="/images/logos/srm.svg"
+              coursework={[
+                "Data Structures & Algorithms",
+                "Database Management Systems",
+                "Machine Learning & AI",
+                "Web Technologies",
+                "Software Engineering",
+                "Cloud Computing"
+              ]}
+              achievements={[
+                "Graduated with Distinction (78.6%, First Class)",
+                "Best Project Award for Final Year Project",
+                "Technical Lead of Coding Club",
+                "Published research paper on AI applications"
+              ]}
             />
           </div>
         </div>
@@ -218,7 +247,7 @@ export default function Home() {
           >
             <h1 className="heading-xl mb-8">Let's Talk!</h1>
             <p className="body-lg mb-12">
-              I am always open to connect with people in tech, learn more about 
+              I am always open to connect with people in tech, learn more about
               product management, and discuss navigating this rewarding career path.
             </p>
             <div className="flex gap-6">
@@ -250,9 +279,9 @@ export default function Home() {
   );
 }
 
-function ProjectCard({ title, description, image, link, logo }: { 
-  title: string; 
-  description: string; 
+function ProjectCard({ title, description, image, link, logo }: {
+  title: string;
+  description: string;
   image: string;
   link: string;
   logo: string;
@@ -287,7 +316,7 @@ function ProjectCard({ title, description, image, link, logo }: {
   );
 }
 
-function WorkCard({ title, role, description, link, period, logo }: { 
+function WorkCard({ title, role, description, link, period, logo }: {
   title: string;
   role: string;
   description: string;
@@ -321,13 +350,24 @@ function WorkCard({ title, role, description, link, period, logo }: {
   );
 }
 
-function EducationCard({ institution, degree, period, description, logo, location }: {
+function EducationCard({ 
+  institution, 
+  degree, 
+  period, 
+  description, 
+  logo, 
+  location,
+  coursework,
+  achievements 
+}: {
   institution: string;
   degree: string;
   period: string;
   description: string;
   logo: string;
   location?: string;
+  coursework?: string[];
+  achievements?: string[];
 }) {
   return (
     <motion.div
@@ -335,18 +375,52 @@ function EducationCard({ institution, degree, period, description, logo, locatio
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group"
+      className="group bg-neutral-900/20 rounded-lg p-8 border border-neutral-800"
     >
-      <div className="flex items-center gap-4 mb-4">
-        <img src={logo} alt={institution} className="h-8 w-8" />
-        <h3 className="heading-md">
-          {institution} {location && `(${location})`}
-        </h3>
+      <div className="flex items-center gap-4 mb-6">
+        <img src={logo} alt={institution} className="h-12 w-12" />
+        <div>
+          <h3 className="heading-md">
+            {institution}
+          </h3>
+          <p className="text-neutral-400">{location}</p>
+        </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <p className="text-xl text-purple-600">{degree}</p>
-        <p className="text-lg text-neutral-400">{period}</p>
-        <p className="body-md mt-2">{description}</p>
+
+      <div className="space-y-6">
+        <div>
+          <p className="text-xl text-purple-600">{degree}</p>
+          <p className="text-lg text-neutral-400">{period}</p>
+          <p className="body-md mt-4">{description}</p>
+        </div>
+
+        {coursework && (
+          <div>
+            <h4 className="text-lg font-semibold mb-3">Key Coursework</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              {coursework.map((course, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                  <span className="text-neutral-400">{course}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {achievements && (
+          <div>
+            <h4 className="text-lg font-semibold mb-3">Achievements</h4>
+            <div className="space-y-2">
+              {achievements.map((achievement, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                  <span className="text-neutral-400">{achievement}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );
