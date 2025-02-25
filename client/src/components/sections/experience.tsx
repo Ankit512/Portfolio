@@ -87,69 +87,45 @@ export default function Experience() {
           <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
-        <div className="relative pl-8">
-          {/* Timeline line - made thinner */}
-          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-purple-600/20" />
-
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                {/* Timeline dot - precisely centered with white border */}
-                <div
-                  className="absolute left-0 top-8 w-3 h-3 transform -translate-x-1/2"
-                  style={{
-                    background: 'rgb(147, 51, 234)',
-                    borderRadius: '50%',
-                    border: '2px solid black',
-                  }}
-                />
-
-                {/* Date Label */}
-                <div className="absolute left-6 top-8 transform -translate-y-1/2">
-                  <span className="text-sm text-neutral-400">
-                    {exp.period.split('–')[0].trim()}
-                  </span>
-                </div>
-
-                {/* Content Card */}
-                <div className="ml-20">
-                  <Card className="bg-neutral-900/20 border border-neutral-800">
-                    <CardContent className="p-6">
-                      <div className="mb-4">
-                        <h3 className="text-xl font-semibold">{exp.position}</h3>
-                        <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
-                          <Building2 className="h-4 w-4 flex-shrink-0" />
-                          <span>{exp.company}</span>
-                          <span>•</span>
-                          <span>{exp.location}</span>
-                        </div>
-                        <div className="flex items-center gap-2 mt-2">
-                          <Calendar className="h-4 w-4 flex-shrink-0" />
-                          <span className="text-muted-foreground">{exp.period}</span>
-                        </div>
+        <div className="grid gap-6">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card className="bg-neutral-900/20 border border-neutral-800 overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-semibold">{exp.position}</h3>
+                      <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
+                        <Building2 className="h-4 w-4 flex-shrink-0" />
+                        <span>{exp.company}</span>
+                        <span>•</span>
+                        <span>{exp.location}</span>
                       </div>
+                    </div>
+                    <div className="flex items-center gap-2 mt-2 md:mt-0">
+                      <Calendar className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-purple-600 font-medium">{exp.period}</span>
+                    </div>
+                  </div>
 
-                      <ul className="space-y-2">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                            <span className="text-neutral-400">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                        <span className="text-neutral-400">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
