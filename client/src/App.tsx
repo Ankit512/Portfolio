@@ -18,7 +18,7 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-black text-white">
+      <div className="bg-black selection:bg-white selection:text-black">
         <Nav />
         <Router />
         <Toaster />
