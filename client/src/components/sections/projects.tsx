@@ -7,21 +7,21 @@ import { Github, ExternalLink } from "lucide-react";
 const projects = [
   {
     title: "Random Dad Joke Generator",
-    description: "A fun little project that generates random dad jokes fetched via the icanhazdadjoke API. Built using vanilla JavaScript and modern CSS for styling.",
-    tech: ["HTML", "CSS", "JavaScript", "REST API"],
+    description: "Just for gags, this is a fun little project that generates a random dad joke. Jokes were fetched via an API from icanhazdadjoke.com",
+    tech: ["HTML & CSS", "JavaScript"],
     github: "https://github.com/Ankit512/randomdadjoke.github.io",
     live: "https://ankit512.github.io/randomdadjoke.github.io/"
   },
   {
     title: "Object Detection using Trigger Word",
-    description: "An innovative application combining NLP and Digital Image Processing to assist visually impaired individuals. Features voice activation and real-time object detection using YOLO v4.",
-    tech: ["Python", "CUDA", "YOLO v4", "NLP", "OpenCV"],
+    description: "Develop an application that makes use of Natural Language Processing (NLP) and Digital Image Processing to assist visually impaired individuals using a voice activation and object detection model with audio feedback, which allows the individual to get an audio output of any object present in front of a camera after the system recognizes a trigger word on which it was trained on.",
+    tech: ["Python", "CUDA", "Jupyter Notebook", "C++", "YOLO v4"],
     github: "https://github.com/Ankit512/object-detection-using-trigger-word"
   },
   {
     title: "FPS Minigame",
-    description: "A First Person Shooter game built using Unity 3D, featuring dynamic combat mechanics and immersive gameplay. Implemented using C# for game logic and Blender for 3D modeling.",
-    tech: ["C#", "Unity 3D", "Blender", "Game Design"],
+    description: "An FPS (First Person Shooter) game built using C# and Unity 3D. The main design centre of this game is FPS action combat.",
+    tech: ["C#", "C++", "Classic ASP", "Unity 3D", "Blender"],
     github: "https://github.com/Ankit512/FPS-Minigame"
   }
 ];
@@ -59,7 +59,11 @@ export default function Projects() {
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, i) => (
-                      <Badge key={i} variant="secondary" className="bg-purple-600/10 text-purple-600 hover:bg-purple-600/20">
+                      <Badge 
+                        key={i} 
+                        variant="secondary" 
+                        className="bg-purple-600/10 text-purple-600 hover:bg-purple-600/20"
+                      >
                         {tech}
                       </Badge>
                     ))}
