@@ -119,7 +119,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="group relative"
             >
-              <div className="aspect-[16/9] overflow-hidden bg-neutral-900 rounded-lg border border-neutral-800">
+              <div className="aspect-[4/3] overflow-hidden bg-neutral-900 rounded-lg border border-neutral-800">
                 <img
                   src="/images/projects/shipmaxx-dashboard.png"
                   alt="Shipmaxx.in Platform Interface"
@@ -157,9 +157,9 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="body-md text-neutral-400">
-                  A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL 
-                  database to improve website responsiveness by 40%. Led integration of GraphQL APIs for 
-                  real-time SKU management.
+                  An e-commerce logistics platform that streamlines order fulfillment and inventory management. 
+                  Built with GraphQL for real-time inventory tracking and optimized SQL for handling 10k+ daily orders 
+                  with 40% improved performance.
                 </p>
               </a>
             </motion.div>
