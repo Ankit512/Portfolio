@@ -104,19 +104,58 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-32"
+            className="mb-16"
           >
             <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
-            <h3 className="heading-lg">Launched Product</h3>
+            <h3 className="heading-lg mb-12">Launched Product</h3>
           </motion.div>
 
-          <ProjectCard
-            title="Shipmaxx.in"
-            description="A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%. Led integration of GraphQL APIs for real-time SKU management."
-            image="/images/placeholder.jpg"
-            link="https://shipmaxx.in"
-            logo="/images/logos/shipmaxx.svg"
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group"
+            >
+              <div className="aspect-[16/9] overflow-hidden mb-8 bg-neutral-900 rounded-lg">
+                <motion.div
+                  className="w-full h-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(/images/project-abstract.svg)` }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
+              <a 
+                href="https://shipmaxx.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group-hover:opacity-60 transition-opacity"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <img src="/images/logos/shipmaxx.svg" alt="Shipmaxx" className="h-8 w-8" />
+                  <h3 className="heading-md flex items-center gap-3">
+                    Shipmaxx.in
+                    <ExternalLink className="h-6 w-6 inline-block opacity-60" />
+                  </h3>
+                </div>
+                <p className="body-md text-neutral-400">
+                  A comprehensive shipping and order management platform. Enhanced UX by re-structuring SQL 
+                  database to improve website responsiveness by 40%. Led integration of GraphQL APIs for 
+                  real-time SKU management.
+                </p>
+              </a>
+            </motion.div>
+          </div>
         </div>
       </section>
 
