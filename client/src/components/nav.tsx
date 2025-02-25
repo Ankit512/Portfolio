@@ -6,80 +6,61 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: "#work", label: "Work" },
-    { href: "#about", label: "About" },
+    { href: "/", label: "Home" },
+    { href: "#projects", label: "Projects" },
+    { href: "#resume", label: "Resume" },
     { href: "#contact", label: "Contact" },
   ];
 
-  const menuVariants = {
-    closed: { x: "100%" },
-    open: { x: 0 }
-  };
-
-  const overlayVariants = {
-    closed: { opacity: 0 },
-    open: { opacity: 1 }
-  };
-
   return (
-    <>
-      <nav className="fixed w-full z-50 mix-blend-difference">
-        <div className="container mx-auto px-8 py-8 flex justify-between items-center">
-          <a href="/" className="text-white text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity">AK</a>
+    <nav className="fixed w-full z-50">
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex justify-between items-center">
+          <a href="/" className="text-2xl font-medium">
+            <img src="/avatar.png" alt="AK" className="w-8 h-8 rounded-full" />
+          </a>
+          <div className="hidden md:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm hover:text-neutral-400 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white hover:opacity-60 transition-opacity z-50"
+            className="md:hidden text-white hover:opacity-60 transition-opacity"
             aria-label="Toggle Menu"
           >
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </nav>
+      </div>
 
       <AnimatePresence>
         {isOpen && (
-          <>
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={overlayVariants}
-              transition={{ duration: 0.4 }}
-              className="fixed inset-0 bg-black/90 backdrop-blur-sm z-40"
-              onClick={() => setIsOpen(false)}
-            />
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              transition={{ type: "tween", duration: 0.6, ease: [0.32, 0, 0.67, 0] }}
-              className="fixed top-0 right-0 bottom-0 w-full md:w-[640px] bg-black z-40 flex items-center"
-            >
-              <div className="container mx-auto px-8">
-                <div className="space-y-6">
-                  {menuItems.map((item) => (
-                    <motion.div
-                      key={item.href}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.8 }}
-                    >
-                      <a
-                        href={item.href}
-                        className="text-[clamp(3rem,10vw,6rem)] font-bold text-white hover:text-neutral-400 transition-colors block"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 bg-black p-4 md:hidden"
+          >
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block py-2 text-center hover:text-neutral-400 transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+          </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </nav>
   );
 }

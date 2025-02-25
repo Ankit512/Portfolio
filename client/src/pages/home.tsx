@@ -1,279 +1,157 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="bg-black">
-      <Hero />
-      <motion.section
-        id="work"
-        className="min-h-screen py-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
+    <main className="bg-black min-h-screen">
+      <section className="min-h-screen flex items-center">
         <div className="container mx-auto px-8">
-          <div className="overflow-hidden mb-16">
-            <motion.h2 
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl md:text-7xl font-bold"
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.6, 0.01, -0.05, 0.9] }}
+            className="max-w-[90vw]"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Selected Work
-            </motion.h2>
-          </div>
-          <div className="space-y-32">
-            <WorkItem
-              title="Shipmaxx.in"
-              description="A comprehensive shipping and order management platform"
-              image="/images/placeholder.jpg"
-              role="Product Owner"
-              link="https://shipmaxx.in"
-            />
-            <WorkItem
-              title="AI Chatbot Framework"
-              description="Sustainability education platform using Microsoft Copilot Studio"
-              image="/images/placeholder.jpg"
-              role="Product Manager"
-            />
-            <WorkItem
-              title="Supply Chain Analytics"
-              description="Automated research system using UiPath for processing supplier documents"
-              image="/images/placeholder.jpg"
-              role="Product Manager"
-            />
-          </div>
-        </div>
-      </motion.section>
+              <h2 className="text-xl md:text-2xl text-neutral-400 mb-4 tracking-tight">
+                AI PRODUCT MANAGER
+              </h2>
+            </motion.div>
 
-      <motion.section
-        id="about"
-        className="min-h-screen py-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-8">
-          <div className="overflow-hidden mb-16">
-            <motion.h2 
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl md:text-7xl font-bold"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
             >
-              About
-            </motion.h2>
-          </div>
-          <div className="max-w-3xl space-y-8">
-            <div className="overflow-hidden">
-              <motion.p
-                initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                className="text-xl text-neutral-400"
-              >
-                Product Manager with a strong focus on AI/ML solutions and enterprise systems,
-                bringing 4+ years of experience in launching innovative products.
-              </motion.p>
-            </div>
-            <div className="overflow-hidden">
-              <motion.div
-                initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              >
-                <p className="text-xl text-neutral-400">
-                  Featured Article: "The Rise of Agentic AI" - Exploring the transformative
-                  potential of autonomous AI systems.
-                </p>
-                <a
-                  href="https://medium.com/@ankit512.kumar/the-rise-of-agentic-ai-5f1133b4b79c"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mt-4 text-white hover:text-neutral-300 transition-colors"
-                >
-                  Read Article →
-                </a>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </motion.section>
+              <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
+                Building for{" "}
+                <span className="text-purple-600">humans.</span>
+              </h1>
+            </motion.div>
 
-      <motion.section
-        id="contact"
-        className="min-h-screen py-20"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-8">
-          <div className="overflow-hidden mb-16">
-            <motion.h2 
-              initial={{ y: "100%" }}
-              whileInView={{ y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-5xl md:text-7xl font-bold"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Contact
-            </motion.h2>
-          </div>
-          <div className="max-w-3xl space-y-8">
-            <div className="overflow-hidden">
-              <motion.p
-                initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                className="text-xl text-neutral-400"
+              <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl mb-8">
+                Currently, I'm a Product Manager for AI & Data at Intuit.
+                Former AI-startup founder and Product Management intern at Walmart.
+                From my Masters in Engineering Management, I built my technical expertise in
+                Generative AI as well as Data Strategy.
+              </p>
+              <a
+                href="#projects"
+                className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-purple-700 transition-colors"
               >
-                Let's work together to build something great.
-              </motion.p>
-            </div>
-            <div className="overflow-hidden">
-              <motion.div
-                initial={{ y: "100%" }}
-                whileInView={{ y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                className="space-y-4"
-              >
-                <a
-                  href="mailto:ankit512.kumar@gmail.com"
-                  className="block text-2xl text-white hover:text-neutral-300 transition-colors"
-                >
-                  ankit512.kumar@gmail.com
-                </a>
-                <a
-                  href="https://linkedin.com/in/ankitk79"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-2xl text-white hover:text-neutral-300 transition-colors"
-                >
-                  LinkedIn →
-                </a>
-              </motion.div>
+                My Projects
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section id="skills" className="py-20 bg-black">
+        <div className="container mx-auto px-8">
+          <div className="max-w-4xl">
+            <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
+            <h3 className="text-4xl md:text-6xl font-bold mb-8">
+              Building products for humans
+            </h3>
+            <p className="text-xl text-neutral-400 mb-16">
+              With my startup background, I bring a lean mindset for building products fast. 
+              My psychology background uniquely connects me to building products that understand 
+              and enhance user experiences.
+            </p>
+            <div className="grid grid-cols-2 gap-8">
+              <SkillCard
+                title="Product Strategy"
+                items={["Roadmapping", "A/B Tests", "Project Management"]}
+              />
+              <SkillCard
+                title="Product Design"
+                items={["User Stories", "User Flows", "Wireframes", "Persona Writing"]}
+              />
+              <SkillCard
+                title="Market & User Research"
+                items={["Market Analysis", "Experiment Design", "Usability Testing"]}
+              />
+              <SkillCard
+                title="Analytics & Programming"
+                items={["Software Development", "Data Management"]}
+              />
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
+
+      <section id="contact" className="min-h-screen flex items-center bg-black">
+        <div className="container mx-auto px-8">
+          <div className="max-w-[90vw]">
+            <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
+              Let's Talk!
+            </h1>
+            <p className="text-xl md:text-2xl text-neutral-400 mb-12">
+              I am always open to connect with people in tech, learn more about 
+              product management, and discuss navigating this rewarding career path.
+            </p>
+            <div className="flex gap-6">
+              <SocialLink
+                href="https://linkedin.com/in/ankitk79"
+                icon={Linkedin}
+                label="LinkedIn"
+              />
+              <SocialLink
+                href="https://www.instagram.com/_kum.ankit_"
+                icon={Instagram}
+                label="Instagram"
+              />
+              <SocialLink
+                href="https://github.com/Ankit512"
+                icon={Github}
+                label="GitHub"
+              />
+              <SocialLink
+                href="mailto:ankit512.kumar@gmail.com"
+                icon={Mail}
+                label="Email"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
 
-function WorkItem({ title, description, image, role, link }: {
-  title: string;
-  description: string;
-  image: string;
-  role: string;
-  link?: string;
-}) {
+function SkillCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="group"
-    >
-      <div className="aspect-[16/9] bg-neutral-900 mb-8 overflow-hidden">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-          className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${image})` }}
-        />
-      </div>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="block">
-        <div className="overflow-hidden">
-          <motion.h3 
-            initial={{ y: "100%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="text-3xl md:text-5xl font-bold mb-4 group-hover:text-neutral-400 transition-colors"
-          >
-            {title}
-          </motion.h3>
-        </div>
-        <div className="overflow-hidden">
-          <motion.div
-            initial={{ y: "100%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="flex items-center gap-2 text-xl text-neutral-400"
-          >
-            <span>{description}</span>
-            {link && <ExternalLink className="h-5 w-5" />}
-          </motion.div>
-        </div>
-        <div className="overflow-hidden">
-          <motion.p
-            initial={{ y: "100%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-            className="text-lg text-neutral-500 mt-2"
-          >
-            {role}
-          </motion.p>
-        </div>
-      </a>
-    </motion.div>
+    <div className="p-8 bg-neutral-900 rounded-lg">
+      <h4 className="text-xl font-semibold mb-4 text-white">{title}</h4>
+      <ul className="space-y-2 text-neutral-400">
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
-function Hero() {
+function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; label: string }) {
   return (
-    <section className="h-screen flex items-center">
-      <div className="container mx-auto px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-          className="max-w-[100vw]"
-        >
-          <div className="overflow-hidden">
-            <motion.h2 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-xl md:text-2xl text-neutral-400 mb-4"
-            >
-              AI PRODUCT MANAGER
-            </motion.h2>
-          </div>
-
-          <div className="overflow-hidden">
-            <motion.h1
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8"
-            >
-              Building Tomorrow's AI Solutions
-            </motion.h1>
-          </div>
-
-          <div className="overflow-hidden">
-            <motion.p
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-              className="text-xl md:text-2xl text-neutral-400 max-w-2xl"
-            >
-              Product Manager specializing in AI/ML solutions and enterprise systems. 
-              Crafting data-driven experiences that enhance efficiency and user engagement.
-            </motion.p>
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-neutral-400 hover:text-white transition-colors"
+      whileHover={{ scale: 1.1 }}
+      aria-label={label}
+    >
+      <Icon className="h-6 w-6" />
+    </motion.a>
   );
 }
