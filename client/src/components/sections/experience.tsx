@@ -23,11 +23,11 @@ const experiences = [
     position: "Product Owner/Senior Business Analyst",
     period: "Jan 2023 – Oct 2024",
     achievements: [
-      "Directed successful rollout of Losung OMS application",
-      "Enhanced UX by re-structuring SQL database",
+      "Directed successful rollout of Losung OMS application including shipmaxx.in - a comprehensive shipping and order management platform",
+      "Enhanced UX by re-structuring SQL database to improve website responsiveness by 40%",
       "Orchestrated cross-functional collaboration for A/B testing",
       "Facilitated design and development with wireframes",
-      "Collaborated with developers on GraphQL API integration"
+      "Led integration of GraphQL APIs for real-time SKU management"
     ]
   },
   {
@@ -82,7 +82,7 @@ export default function Experience() {
     <section id="experience" className="py-20 bg-secondary/5">
       <div className="container px-4">
         <h2 className="text-3xl font-bold mb-12 text-center">Professional Experience</h2>
-        
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -109,7 +109,7 @@ export default function Experience() {
                       <span className="text-muted-foreground">{exp.period}</span>
                     </div>
                   </div>
-                  
+
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-2">
