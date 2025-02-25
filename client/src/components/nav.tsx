@@ -31,7 +31,7 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 z-50 bg-black/80 backdrop-blur-sm w-full">
       <div className="container px-4 sm:px-8 py-4">
-        <div className="flex items-center gap-4 sm:gap-8">
+        <div className="flex justify-between items-center">
           <a 
             href="#" 
             className="text-white text-xl sm:text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity"
