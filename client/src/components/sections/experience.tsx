@@ -82,63 +82,65 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-32"
+          className="mb-16"
         >
           <h2 className="text-xl text-neutral-400 mb-4">CAREER ROADMAP</h2>
-          <h3 className="heading-lg">Professional Journey</h3>
+          <h3 className="heading-lg mb-12">Professional Journey</h3>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
           <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-purple-600/20" />
 
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative mb-12 md:mb-24 ${
-                index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'
-              }`}
-            >
-              {/* Timeline dot and year label */}
-              <div className="absolute left-8 md:left-1/2 transform -translate-y-1/2 md:-translate-x-1/2 flex flex-col items-center">
-                <div className="w-4 h-4 rounded-full bg-purple-600" />
-                <div className="mt-2 text-sm text-neutral-400">
-                  {exp.period.split('–')[0].trim()}
-                </div>
-              </div>
-
-              <Card className={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'} bg-neutral-900/20 border border-neutral-800`}>
-                <CardContent className="p-6">
-                  <div className="mb-4">
-                    <h3 className="text-xl font-semibold">{exp.position}</h3>
-                    <div className="flex items-center gap-2 text-muted-foreground mt-1 justify-start">
-                      <Building2 className="h-4 w-4" />
-                      <span>{exp.company}</span>
-                      <span>•</span>
-                      <span>{exp.location}</span>
-                    </div>
-                    <div className="flex items-center gap-2 mt-2">
-                      <Calendar className="h-4 w-4" />
-                      <span className="text-muted-foreground">{exp.period}</span>
-                    </div>
+          <div className="space-y-24">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`relative md:w-1/2 ${
+                  index % 2 === 0 ? 'md:pr-12 md:mr-auto' : 'md:pl-12 md:ml-auto'
+                }`}
+              >
+                {/* Timeline dot and year label */}
+                <div className="absolute left-8 md:left-auto md:right-0 transform md:translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                  <div className="w-4 h-4 rounded-full bg-purple-600" />
+                  <div className="mt-2 text-sm text-neutral-400">
+                    {exp.period.split('–')[0].trim()}
                   </div>
+                </div>
 
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                        <span className="text-neutral-400">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                <Card className="bg-neutral-900/20 border border-neutral-800">
+                  <CardContent className="p-6">
+                    <div className="mb-4">
+                      <h3 className="text-xl font-semibold">{exp.position}</h3>
+                      <div className="flex items-center gap-2 text-muted-foreground mt-1">
+                        <Building2 className="h-4 w-4" />
+                        <span>{exp.company}</span>
+                        <span>•</span>
+                        <span>{exp.location}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-2">
+                        <Calendar className="h-4 w-4" />
+                        <span className="text-muted-foreground">{exp.period}</span>
+                      </div>
+                    </div>
+
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                          <span className="text-neutral-400">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
