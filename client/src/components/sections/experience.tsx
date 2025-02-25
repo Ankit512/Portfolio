@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar } from "lucide-react";
 
 const experiences = [
@@ -56,55 +55,50 @@ const experiences = [
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
 export default function Experience() {
   return (
     <section id="experience" className="py-20 bg-secondary/5">
       <div className="container px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">Professional Experience</h2>
-
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
+          <h2 className="text-xl text-neutral-400 mb-4">PROFESSIONAL JOURNEY</h2>
+          <h3 className="heading-lg mb-12">Career Timeline</h3>
+        </motion.div>
+
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-purple-600/20" />
+
           {experiences.map((exp, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`relative mb-12 md:mb-24 ${
+                index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'
+              }`}
+            >
+              {/* Timeline dot */}
+              <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-purple-600 transform -translate-y-1/2 md:-translate-x-1/2" />
+
+              <Card className={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                 <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold">{exp.position}</h3>
-                      <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                        <Building2 className="h-4 w-4" />
-                        <span>{exp.company}</span>
-                        <span>•</span>
-                        <span>{exp.location}</span>
-                      </div>
+                  <div className="mb-4">
+                    <h3 className="text-xl font-semibold">{exp.position}</h3>
+                    <div className="flex items-center gap-2 text-muted-foreground mt-1 justify-start">
+                      <Building2 className="h-4 w-4" />
+                      <span>{exp.company}</span>
+                      <span>•</span>
+                      <span>{exp.location}</span>
                     </div>
-                    <div className="flex items-center gap-2 mt-2 md:mt-0">
+                    <div className="flex items-center gap-2 mt-2">
                       <Calendar className="h-4 w-4" />
                       <span className="text-muted-foreground">{exp.period}</span>
                     </div>
@@ -113,7 +107,7 @@ export default function Experience() {
                   <ul className="space-y-2">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -122,7 +116,7 @@ export default function Experience() {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
