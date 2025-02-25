@@ -88,10 +88,10 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative pl-8">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-purple-600/20" />
+          {/* Timeline line - made thinner */}
+          <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-purple-600/20" />
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -101,10 +101,15 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                {/* Timeline Dot */}
-                <div className="absolute -left-[9px] top-8">
-                  <div className="w-4 h-4 rounded-full bg-purple-600" />
-                </div>
+                {/* Timeline dot - precisely centered with white border */}
+                <div
+                  className="absolute left-0 top-8 w-3 h-3 transform -translate-x-1/2"
+                  style={{
+                    background: 'rgb(147, 51, 234)',
+                    borderRadius: '50%',
+                    border: '2px solid black',
+                  }}
+                />
 
                 {/* Date Label */}
                 <div className="absolute left-6 top-8 transform -translate-y-1/2">
