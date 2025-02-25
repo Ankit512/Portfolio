@@ -10,7 +10,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.6, 0.01, -0.05, 0.9] }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="max-w-[90vw]"
           >
             <motion.div
@@ -92,7 +92,7 @@ export default function Home() {
               My psychology background uniquely connects me to building products that understand 
               and enhance user experiences.
             </p>
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <SkillCard
                 title="Product Strategy"
                 items={["Roadmapping", "A/B Tests", "Project Management"]}
@@ -160,12 +160,15 @@ function ProjectCard({ title, description, image }: { title: string; description
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="group"
     >
       <div className="aspect-[16/9] overflow-hidden mb-8 bg-neutral-900">
         <motion.div
-          className="w-full h-full bg-cover bg-center image-hover"
+          className="w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>
       <h3 className="text-3xl md:text-5xl font-bold mb-4 group-hover:text-neutral-400 transition-colors">
@@ -197,6 +200,7 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; labe
       rel="noopener noreferrer"
       className="text-neutral-400 hover:text-white transition-colors"
       whileHover={{ scale: 1.1 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       aria-label={label}
     >
       <Icon className="h-6 w-6" />

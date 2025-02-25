@@ -12,11 +12,18 @@ export default function Nav() {
     { href: "#contact", label: "Contact" },
   ];
 
+  const menuVariants = {
+    hidden: { opacity: 0, x: "100%" },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <nav className="fixed w-full z-50 mix-blend-difference">
       <div className="container mx-auto px-8 py-6">
         <div className="flex justify-between items-center">
-          <a href="/" className="text-white text-2xl font-medium">AK</a>
+          <a href="/" className="text-white text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity">
+            AK
+          </a>
           <div className="hidden md:flex items-center gap-12">
             {menuItems.map((item) => (
               <a
@@ -41,14 +48,15 @@ export default function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={menuVariants}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed inset-0 bg-black flex items-center justify-center z-40"
           >
             <div className="flex flex-col items-center gap-8">
-              {menuItems.map((item) => (
+              {menuItems.map((item, index) => (
                 <motion.a
                   key={item.href}
                   href={item.href}
@@ -56,7 +64,7 @@ export default function Nav() {
                   onClick={() => setIsOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: index * 0.1, duration: 0.4, ease: "easeOut" }}
                 >
                   {item.label}
                 </motion.a>
