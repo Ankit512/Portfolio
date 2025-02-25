@@ -40,11 +40,11 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl">
-                Product Manager with a strong focus on AI/ML solutions and enterprise systems, 
-                bringing 4+ years of experience in launching innovative products. Specialized in 
-                developing AI-driven applications that enhance operational efficiency and user 
-                experience. Successfully led the development of AI chatbots for sustainability 
-                education and automated research systems using modern tech stack.
+                With my startup background, I bring a lean mindset for building products fast. 
+                My technical expertise in Generative AI and Data Strategy enables me to develop 
+                impactful products utilizing machine learning, generative AI, and big data solutions. 
+                From AI chatbots to automated research systems, I focus on enhancing operational 
+                efficiency and user experience.
               </p>
             </motion.div>
           </motion.div>
