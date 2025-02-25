@@ -117,16 +117,17 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="group"
+              className="group relative"
             >
-              <div className="aspect-[16/9] overflow-hidden mb-8 rounded-lg">
-                <motion.img
-                  src="/images/shipmaxx-interface.png"
+              <div className="aspect-[16/9] overflow-hidden bg-neutral-900 rounded-lg border border-neutral-800">
+                <img
+                  src="./Screenshot 2025-02-25 193011.png"
                   alt="Shipmaxx.in Platform Interface"
                   className="w-full h-full object-cover object-center rounded-lg hover:scale-105 transition-transform duration-500"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6 }}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/images/project-abstract.svg';
+                  }}
                 />
               </div>
             </motion.div>
