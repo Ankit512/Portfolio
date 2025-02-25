@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram, ExternalLink, Building2, Calendar } from "lucide-react";
 
-export default function Home() {
+function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="h-screen flex items-center">
         <div className="container mx-auto px-8">
@@ -18,7 +18,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <h2 className="text-xl md:text-2xl text-neutral-400 mb-4 tracking-tight">
+              <h2 className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight">
                 ANKIT KUMAR
               </h2>
             </motion.div>
@@ -28,7 +28,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
+              <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8 text-foreground">
                 Product Manager for
                 <span className="text-purple-600"> AI & Data</span>
               </h1>
@@ -39,7 +39,7 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl">
                 With my startup background, I bring a lean mindset for building products fast. 
                 My technical expertise in Generative AI and Data Strategy enables me to develop 
                 impactful products utilizing machine learning, generative AI, and big data solutions. 
@@ -52,11 +52,11 @@ export default function Home() {
       </section>
 
       {/* Work Experience Section */}
-      <section className="py-20">
+      <section className="py-20 bg-secondary/5">
         <div className="container mx-auto px-8">
           <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">WORK EXPERIENCE</h2>
-            <h3 className="text-4xl md:text-6xl font-bold">
+            <h2 className="text-xl text-muted-foreground mb-4">WORK EXPERIENCE</h2>
+            <h3 className="text-4xl md:text-6xl font-bold text-foreground">
               Professional Journey
             </h3>
           </div>
@@ -98,11 +98,11 @@ export default function Home() {
       </section>
 
       {/* Featured Project Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-8">
           <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
-            <h3 className="text-4xl md:text-6xl font-bold">
+            <h2 className="text-xl text-muted-foreground mb-4">FEATURED PROJECT</h2>
+            <h3 className="text-4xl md:text-6xl font-bold text-foreground">
               Launched Product
             </h3>
           </div>
@@ -117,11 +117,11 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section className="py-20">
+      <section className="py-20 bg-secondary/5">
         <div className="container mx-auto px-8">
           <div className="mb-16">
-            <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
-            <h3 className="text-4xl md:text-6xl font-bold">
+            <h2 className="text-xl text-muted-foreground mb-4">EDUCATION</h2>
+            <h3 className="text-4xl md:text-6xl font-bold text-foreground">
               Academic Background
             </h3>
           </div>
@@ -147,13 +147,13 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="min-h-screen flex items-center">
+      <section id="contact" className="min-h-screen flex items-center bg-background">
         <div className="container mx-auto px-8">
           <div className="max-w-[90vw]">
-            <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
+            <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8 text-foreground">
               Let's Talk!
             </h1>
-            <p className="text-xl md:text-2xl text-neutral-400 mb-12">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12">
               I am always open to connect with people in tech, learn more about 
               product management, and discuss navigating this rewarding career path.
             </p>
@@ -209,15 +209,15 @@ function ProjectCard({ title, description, image, link, logo }: {
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
       </div>
-      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
+      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-muted-foreground transition-colors">
         <div className="flex items-center gap-4 mb-4">
           <img src={logo} alt={title} className="h-8 w-8" />
-          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3">
+          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3 text-foreground">
             {title}
             <ExternalLink className="h-8 w-8 inline-block" />
           </h3>
         </div>
-        <p className="text-xl text-neutral-400">{description}</p>
+        <p className="text-xl text-muted-foreground">{description}</p>
       </a>
     </motion.div>
   );
@@ -239,18 +239,18 @@ function WorkCard({ title, role, description, link, period, logo }: {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="group"
     >
-      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-neutral-400 transition-colors">
+      <a href={link} target="_blank" rel="noopener noreferrer" className="group-hover:text-muted-foreground transition-colors">
         <div className="flex items-center gap-4 mb-4">
           <img src={logo} alt={title} className="h-8 w-8" />
-          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3">
+          <h3 className="text-3xl md:text-5xl font-bold flex items-center gap-3 text-foreground">
             {title}
             <ExternalLink className="h-8 w-8 inline-block" />
           </h3>
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-xl text-purple-600">{role}</p>
-          <p className="text-lg text-neutral-500">{period}</p>
-          <p className="text-xl text-neutral-400 mt-2">{description}</p>
+          <p className="text-lg text-muted-foreground">{period}</p>
+          <p className="text-xl text-muted-foreground mt-2">{description}</p>
         </div>
       </a>
     </motion.div>
@@ -275,14 +275,14 @@ function EducationCard({ institution, degree, period, description, logo, locatio
     >
       <div className="flex items-center gap-4 mb-4">
         <img src={logo} alt={institution} className="h-8 w-8" />
-        <h3 className="text-3xl md:text-5xl font-bold">
+        <h3 className="text-3xl md:text-5xl font-bold text-foreground">
           {institution} {location && `(${location})`}
         </h3>
       </div>
       <div className="flex flex-col gap-2">
         <p className="text-xl text-purple-600">{degree}</p>
-        <p className="text-lg text-neutral-500">{period}</p>
-        <p className="text-xl text-neutral-400 mt-2">{description}</p>
+        <p className="text-lg text-muted-foreground">{period}</p>
+        <p className="text-xl text-muted-foreground mt-2">{description}</p>
       </div>
     </motion.div>
   );
@@ -294,7 +294,7 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; labe
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-neutral-400 hover:text-white transition-colors"
+      className="text-muted-foreground hover:text-foreground transition-colors"
       whileHover={{ scale: 1.1 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
       aria-label={label}
@@ -303,3 +303,4 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; labe
     </motion.a>
   );
 }
+export default Home;
