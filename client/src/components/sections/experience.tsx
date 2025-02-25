@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Calendar } from "lucide-react";
+import { Building2, Calendar, ArrowDown } from "lucide-react";
 
 const experiences = [
   {
@@ -87,44 +87,59 @@ export default function Experience() {
           <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
-        <div className="grid gap-6">
+        <div className="relative max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="bg-neutral-900/20 border border-neutral-800 overflow-hidden">
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-semibold">{exp.position}</h3>
-                      <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
-                        <Building2 className="h-4 w-4 flex-shrink-0" />
-                        <span>{exp.company}</span>
-                        <span>•</span>
-                        <span>{exp.location}</span>
+            <div key={index} className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative z-10"
+              >
+                <Card className="bg-neutral-900/20 border border-neutral-800 mb-8">
+                  <CardContent className="p-6">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                      <div>
+                        <h3 className="text-xl font-semibold">{exp.position}</h3>
+                        <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
+                          <Building2 className="h-4 w-4 flex-shrink-0" />
+                          <span>{exp.company}</span>
+                          <span>•</span>
+                          <span>{exp.location}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 mt-2 md:mt-0">
+                        <Calendar className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-purple-600 font-medium">{exp.period}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 mt-2 md:mt-0">
-                      <Calendar className="h-4 w-4 flex-shrink-0" />
-                      <span className="text-purple-600 font-medium">{exp.period}</span>
-                    </div>
-                  </div>
 
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                        <span className="text-neutral-400">{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                          <span className="text-neutral-400">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              {/* Connection line and arrow */}
+              {index < experiences.length - 1 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="absolute left-1/2 -translate-x-1/2 h-8 flex items-center justify-center"
+                >
+                  <ArrowDown className="w-6 h-6 text-purple-600/50" />
+                </motion.div>
+              )}
+            </div>
           ))}
         </div>
       </div>
