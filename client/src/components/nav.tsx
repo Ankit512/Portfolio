@@ -8,23 +8,21 @@ export default function Nav() {
   const menuItems = [
     { href: "/", label: "Home" },
     { href: "#projects", label: "Projects" },
-    { href: "#resume", label: "Resume" },
+    { href: "#skills", label: "Skills" },
     { href: "#contact", label: "Contact" },
   ];
 
   return (
-    <nav className="fixed w-full z-50">
-      <div className="container mx-auto px-4 py-6">
+    <nav className="fixed w-full z-50 mix-blend-difference">
+      <div className="container mx-auto px-8 py-6">
         <div className="flex justify-between items-center">
-          <a href="/" className="text-2xl font-medium">
-            <img src="/avatar.png" alt="AK" className="w-8 h-8 rounded-full" />
-          </a>
-          <div className="hidden md:flex items-center space-x-8">
+          <a href="/" className="text-white text-2xl font-medium">AK</a>
+          <div className="hidden md:flex items-center gap-12">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm hover:text-neutral-400 transition-colors"
+                className="text-sm text-white hover:text-neutral-400 transition-colors"
               >
                 {item.label}
               </a>
@@ -43,21 +41,27 @@ export default function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-black p-4 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black flex items-center justify-center z-40"
           >
-            {menuItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-center hover:text-neutral-400 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+            <div className="flex flex-col items-center gap-8">
+              {menuItems.map((item) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  className="text-3xl font-bold text-white hover:text-neutral-400 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

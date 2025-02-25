@@ -4,7 +4,8 @@ import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 export default function Home() {
   return (
     <main className="bg-black min-h-screen">
-      <section className="min-h-screen flex items-center">
+      {/* Hero Section */}
+      <section className="h-screen flex items-center">
         <div className="container mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -18,7 +19,7 @@ export default function Home() {
               transition={{ delay: 0.2, duration: 0.8 }}
             >
               <h2 className="text-xl md:text-2xl text-neutral-400 mb-4 tracking-tight">
-                AI PRODUCT MANAGER
+                PRODUCT MANAGER
               </h2>
             </motion.div>
 
@@ -28,8 +29,8 @@ export default function Home() {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
-                Building for{" "}
-                <span className="text-purple-600">humans.</span>
+                Building for
+                <span className="text-purple-600"> humans.</span>
               </h1>
             </motion.div>
 
@@ -38,24 +39,48 @@ export default function Home() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl mb-8">
+              <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl">
                 Currently, I'm a Product Manager for AI & Data at Intuit.
                 Former AI-startup founder and Product Management intern at Walmart.
                 From my Masters in Engineering Management, I built my technical expertise in
                 Generative AI as well as Data Strategy.
               </p>
-              <a
-                href="#projects"
-                className="inline-block bg-purple-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-purple-700 transition-colors"
-              >
-                My Projects
-              </a>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      <section id="skills" className="py-20 bg-black">
+      {/* Projects Section */}
+      <section id="projects" className="py-20">
+        <div className="container mx-auto px-8">
+          <div className="mb-16">
+            <h2 className="text-xl text-neutral-400 mb-4">SELECTED PROJECTS</h2>
+            <h3 className="text-4xl md:text-6xl font-bold">
+              I've built and enhanced products at various stages
+            </h3>
+          </div>
+          <div className="space-y-32">
+            <ProjectCard
+              title="Shipmaxx.in"
+              description="A comprehensive shipping and order management platform"
+              image="/images/placeholder.jpg"
+            />
+            <ProjectCard
+              title="AI Chatbot Framework"
+              description="Sustainability education platform using Microsoft Copilot Studio"
+              image="/images/placeholder.jpg"
+            />
+            <ProjectCard
+              title="Supply Chain Analytics"
+              description="Automated research system using UiPath"
+              image="/images/placeholder.jpg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20">
         <div className="container mx-auto px-8">
           <div className="max-w-4xl">
             <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
@@ -89,7 +114,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="min-h-screen flex items-center bg-black">
+      {/* Contact Section */}
+      <section id="contact" className="min-h-screen flex items-center">
         <div className="container mx-auto px-8">
           <div className="max-w-[90vw]">
             <h1 className="text-[clamp(2.5rem,8vw,8rem)] font-bold leading-[0.9] tracking-tighter mb-8">
@@ -125,6 +151,28 @@ export default function Home() {
         </div>
       </section>
     </main>
+  );
+}
+
+function ProjectCard({ title, description, image }: { title: string; description: string; image: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="group"
+    >
+      <div className="aspect-[16/9] overflow-hidden mb-8 bg-neutral-900">
+        <motion.div
+          className="w-full h-full bg-cover bg-center image-hover"
+          style={{ backgroundImage: `url(${image})` }}
+        />
+      </div>
+      <h3 className="text-3xl md:text-5xl font-bold mb-4 group-hover:text-neutral-400 transition-colors">
+        {title}
+      </h3>
+      <p className="text-xl text-neutral-400">{description}</p>
+    </motion.div>
   );
 }
 
