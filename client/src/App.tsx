@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Nav from "@/components/nav";
-import ThemeToggle from "@/components/theme-toggle";
 
 function Router() {
   return (
@@ -19,10 +18,9 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-black text-white">
         <Nav />
         <Router />
-        <ThemeToggle />
         <Toaster />
       </div>
     </QueryClientProvider>
