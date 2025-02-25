@@ -88,10 +88,10 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-purple-600/20" />
+          {/* Timeline line - now with responsive positioning */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-purple-600/20 transform md:-translate-x-1/2" />
 
-          <div className="space-y-24">
+          <div className="space-y-12 md:space-y-32 relative">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -99,44 +99,59 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative md:w-1/2 ${
-                  index % 2 === 0 ? 'md:pr-12 md:mr-auto' : 'md:pl-12 md:ml-auto'
-                }`}
+                className="relative flex flex-col md:flex-row items-start group"
               >
-                {/* Timeline dot and year label */}
-                <div className="absolute left-8 md:left-auto md:right-0 transform md:translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                {/* Mobile timeline dot */}
+                <div className="absolute left-8 top-0 md:hidden">
                   <div className="w-4 h-4 rounded-full bg-purple-600" />
                   <div className="mt-2 text-sm text-neutral-400">
                     {exp.period.split('–')[0].trim()}
                   </div>
                 </div>
 
-                <Card className="bg-neutral-900/20 border border-neutral-800">
-                  <CardContent className="p-6">
-                    <div className="mb-4">
-                      <h3 className="text-xl font-semibold">{exp.position}</h3>
-                      <div className="flex items-center gap-2 text-muted-foreground mt-1">
-                        <Building2 className="h-4 w-4" />
-                        <span>{exp.company}</span>
-                        <span>•</span>
-                        <span>{exp.location}</span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <Calendar className="h-4 w-4" />
-                        <span className="text-muted-foreground">{exp.period}</span>
-                      </div>
-                    </div>
+                {/* Desktop timeline structure */}
+                <div className={`hidden md:block absolute top-0 ${
+                  index % 2 === 0 ? 'right-[calc(50%-1rem)]' : 'left-[calc(50%-1rem)]'
+                }`}>
+                  <div className="w-4 h-4 rounded-full bg-purple-600" />
+                  <div className="mt-2 text-sm text-neutral-400 whitespace-nowrap">
+                    {exp.period.split('–')[0].trim()}
+                  </div>
+                </div>
 
-                    <ul className="space-y-2">
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                          <span className="text-neutral-400">{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                {/* Card positioning for desktop */}
+                <div className={`
+                  pl-16 md:pl-0 w-full 
+                  md:w-[calc(50%-2rem)] 
+                  ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8 md:ml-auto'}
+                `}>
+                  <Card className="bg-neutral-900/20 border border-neutral-800 relative">
+                    <CardContent className="p-6">
+                      <div className="mb-4">
+                        <h3 className="text-xl font-semibold">{exp.position}</h3>
+                        <div className="flex items-center gap-2 text-muted-foreground mt-1">
+                          <Building2 className="h-4 w-4" />
+                          <span>{exp.company}</span>
+                          <span>•</span>
+                          <span>{exp.location}</span>
+                        </div>
+                        <div className="flex items-center gap-2 mt-2">
+                          <Calendar className="h-4 w-4" />
+                          <span className="text-muted-foreground">{exp.period}</span>
+                        </div>
+                      </div>
+
+                      <ul className="space-y-2">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
+                            <span className="text-neutral-400">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
               </motion.div>
             ))}
           </div>
