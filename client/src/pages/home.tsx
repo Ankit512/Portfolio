@@ -361,7 +361,16 @@ function EducationCard({
       className="group bg-card/20 rounded-lg p-8 border border-border"
     >
       <div className="flex items-center gap-4 mb-6">
-        <img src={logo} alt={institution} className="h-12 w-12" />
+        <img 
+          src={logo} 
+          alt={institution} 
+          className="h-12 w-12 object-contain"
+          onError={(e) => {
+            console.error('Education logo failed to load:', logo);
+            const target = e.target as HTMLImageElement;
+            target.src = '/images/project-abstract.svg';
+          }}
+        />
         <div>
           <h3 className="heading-md">
             {institution}
