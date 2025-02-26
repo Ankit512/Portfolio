@@ -8,11 +8,11 @@ export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: "#about", label: "About" },
-    { href: "#work", label: "Work" },
-    { href: "#projects", label: "Projects" },
-    { href: "#spotify", label: "Spotify" },
-    { href: "#contact", label: "Contact" }
+    { href: "/ankitkumar-portfolio#about", label: "About" },
+    { href: "/ankitkumar-portfolio#work", label: "Work" },
+    { href: "/ankitkumar-portfolio#projects", label: "Projects" },
+    { href: "/ankitkumar-portfolio#spotify", label: "Spotify" },
+    { href: "/ankitkumar-portfolio#contact", label: "Contact" }
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -20,14 +20,16 @@ export default function Nav() {
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
 
+    const targetId = href.split('#')[1];
+
     // If it's the About section, scroll to top
-    if (href === '#about') {
+    if (targetId === 'about') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     } else {
-      const element = document.querySelector(href);
+      const element = document.getElementById(targetId);
       if (element) {
         const headerOffset = 100;
         const elementPosition = element.getBoundingClientRect().top;
@@ -49,12 +51,12 @@ export default function Nav() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a 
-            href="#about" 
+            href="/ankitkumar-portfolio#about" 
             onClick={handleClick}
             className="relative flex items-center"
           >
             <img 
-              src="/images/ankit-memoji-new.png" 
+              src="/ankitkumar-portfolio/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
               className="w-12 h-12 object-contain"
               style={{
