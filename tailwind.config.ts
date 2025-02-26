@@ -7,19 +7,13 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          '-apple-system',
           'SF Pro Display',
           'SF Pro Text',
+          '-apple-system',
           'system-ui',
           'BlinkMacSystemFont',
           'Helvetica Neue',
           'sans-serif'
-        ],
-        serif: [
-          'New York',
-          'ui-serif',
-          'Georgia',
-          'serif'
         ],
       },
       borderRadius: {
