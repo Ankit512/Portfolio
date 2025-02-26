@@ -37,7 +37,7 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <span className="text-purple-600">AI & Data</span>
                 <motion.img
-                  src="/images/ankit-memoji-new.png"
+                  src="/images/ankit-memoji.svg"
                   alt="Ankit Memoji"
                   className="h-12 w-12 object-contain"
                   initial={{ opacity: 0, scale: 0.8 }}
