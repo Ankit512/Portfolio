@@ -19,11 +19,13 @@ const skillCategories = [
   },
   {
     title: "Data Engineering & Analytics",
-    skills: ["SQL", "ETL Development", "Data Pipeline Design", "Database Migration", "Data Warehousing"]
+    skills: ["SQL", "ETL Development", "Data Pipeline Design", "Database Migration", "Data Warehousing"],
+    className: "md:col-span-1"
   },
   {
     title: "AI & Machine Learning",
-    skills: ["AI Agents", "Multi Modality", "RAG", "Fine Tuning", "Prompt Engineering"]
+    skills: ["AI Agents", "Multi Modality", "RAG", "Fine Tuning", "Prompt Engineering"],
+    className: "md:col-span-1"
   }
 ];
 
@@ -73,7 +75,6 @@ export default function Skills() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Radar Chart */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -128,9 +129,8 @@ export default function Skills() {
             />
           </motion.div>
 
-          {/* Skill Cards */}
           <div className="grid gap-4">
-            {skillCategories.map((category, index) => (
+            {skillCategories.slice(0, 3).map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -156,6 +156,35 @@ export default function Skills() {
                 </Card>
               </motion.div>
             ))}
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {skillCategories.slice(3).map((category, index) => (
+                <motion.div
+                  key={index + 3}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
+                >
+                  <Card className="bg-card/20 border border-border h-full">
+                    <CardContent className="p-4">
+                      <h3 className="text-lg font-semibold mb-3">{category.title}</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {category.skills.map((skill, i) => (
+                          <Badge 
+                            key={i} 
+                            variant="secondary" 
+                            className="text-sm py-1 hover:bg-purple-600/20 transition-colors cursor-default"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
