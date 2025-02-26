@@ -23,28 +23,28 @@ async function refreshAccessToken() {
 setInterval(refreshAccessToken, 50 * 60 * 1000);
 refreshAccessToken(); // Initial token refresh
 
-router.get("/now-playing", async (req, res) => {
+router.get("/playlists", async (req, res) => {
   try {
     const userId = "6oauivyjugmc8akmeekrkeezg"; // Your Spotify user ID
-    const data = await spotifyApi.getMyCurrentPlayingTrack();
-    
-    if (!data.body || !data.body.item) {
-      return res.json(null);
+    const data = await spotifyApi.getUserPlaylists(userId);
+
+    if (!data.body || !data.body.items) {
+      return res.json([]);
     }
 
-    const track = data.body.item;
-    
-    res.json({
-      name: track.name,
-      artist: track.artists[0].name,
-      album: track.album.name,
-      albumArt: track.album.images[0].url,
-      previewUrl: track.preview_url,
-      spotifyUrl: track.external_urls.spotify,
-    });
+    const playlists = data.body.items.map(playlist => ({
+      id: playlist.id,
+      name: playlist.name,
+      description: playlist.description,
+      imageUrl: playlist.images[0]?.url,
+      tracksTotal: playlist.tracks.total,
+      spotifyUrl: playlist.external_urls.spotify,
+    }));
+
+    res.json(playlists);
   } catch (error) {
-    console.error('Error fetching current track:', error);
-    res.status(500).json({ error: 'Failed to fetch current track' });
+    console.error('Error fetching playlists:', error);
+    res.status(500).json({ error: 'Failed to fetch playlists' });
   }
 });
 
