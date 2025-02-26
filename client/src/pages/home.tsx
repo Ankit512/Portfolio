@@ -76,10 +76,10 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="mb-8"
           >
             <h2 className="text-xl text-muted-foreground mb-4">FEATURED PROJECT</h2>
-            <h3 className="heading-lg mb-12">Launched Product</h3>
+            <h3 className="heading-lg">Launched Product</h3>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
