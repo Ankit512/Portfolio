@@ -6,6 +6,7 @@ import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
 import Projects from "@/components/sections/projects";
 import SpotifyPlayer from "@/components/sections/spotify-player";
+import DeploymentStatus from "@/components/deployment-status";
 
 export default function Home() {
   return (
@@ -212,7 +213,7 @@ export default function Home() {
       {/* Spotify Player Section */}
       <SpotifyPlayer />
 
-      {/* Contact Section */}
+      {/* Contact Section - Updated to include DeploymentStatus */}
       <section id="contact" className="h-screen flex items-center">
         <div className="container">
           <motion.div
@@ -226,7 +227,7 @@ export default function Home() {
               I am always open to connect with people in tech, learn more about
               product management, and discuss navigating this rewarding career path.
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 mb-12">
               <SocialLink
                 href="https://linkedin.com/in/ankitk79"
                 icon={Linkedin}
@@ -262,6 +263,12 @@ export default function Home() {
                 icon={SiSpotify}
                 label="Spotify"
               />
+            </div>
+
+            {/* Add DeploymentStatus component */}
+            <div className="mt-8">
+              <h2 className="text-xl text-muted-foreground mb-4">DEPLOYMENT STATUS</h2>
+              <DeploymentStatus />
             </div>
           </motion.div>
         </div>
