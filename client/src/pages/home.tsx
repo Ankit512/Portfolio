@@ -34,17 +34,7 @@ export default function Home() {
             >
               Product Manager for
               <br />
-              <div className="flex items-center gap-3">
-                <span className="text-purple-600">AI & Data</span>
-                <motion.img
-                  src="/images/ankit-memoji.svg"
-                  alt="Ankit Memoji"
-                  className="h-12 w-12 object-contain"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.6 }}
-                />
-              </div>
+              <span className="text-purple-600">AI & Data</span>
             </motion.h1>
 
             <motion.p
