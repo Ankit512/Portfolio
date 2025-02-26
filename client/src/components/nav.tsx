@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTheme } from "@/components/theme-provider";
 
 export default function Nav() {
+  const { theme } = useTheme();
   const menuItems = [
     { href: "#skills", label: "Skills" },
     { href: "#work", label: "Work" },
@@ -49,9 +51,13 @@ export default function Nav() {
                 target.src = '/images/project-abstract.svg';
               }}
               style={{
-                filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
-                WebkitFilter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
-                mixBlendMode: 'multiply',
+                filter: theme === 'dark' 
+                  ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)' 
+                  : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
+                WebkitFilter: theme === 'dark'
+                  ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)'
+                  : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
+                mixBlendMode: theme === 'dark' ? 'normal' : 'multiply',
                 transform: 'translateY(2px)',
                 marginTop: '-2px'
               }}
