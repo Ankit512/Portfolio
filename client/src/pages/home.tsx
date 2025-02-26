@@ -48,11 +48,9 @@ export default function Home() {
               <span className="block">
                 Currently serving as a Volunteer Product Manager for AI at Oakyard.
               </span>
-
               <span className="block">
                 Former Product Owner at Losung360 and Product Engineering Specialist at EY.
               </span>
-
               <span className="block">
                 With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
               </span>
@@ -246,11 +244,6 @@ export default function Home() {
                 href="https://twitter.com/utd_ank"
                 icon={SiX}
                 label="X (Twitter)"
-              />
-              <SocialLink
-                href="https://medium.com/@ankit512.kumar"
-                icon={SiMedium}
-                label="Medium"
               />
               <SocialLink
                 href="mailto:ankit512.kumar@gmail.com"
