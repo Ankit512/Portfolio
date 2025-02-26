@@ -9,10 +9,8 @@ export default function Nav() {
 
   const menuItems = [
     { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
     { href: "#work", label: "Work" },
     { href: "#projects", label: "Projects" },
-    { href: "#blog", label: "Blog" },
     { href: "#spotify", label: "Spotify" },
     { href: "#contact", label: "Contact" }
   ];
@@ -28,22 +26,20 @@ export default function Nav() {
         top: 0,
         behavior: 'smooth'
       });
-      return;
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
     }
 
-    const element = document.querySelector(href);
-    if (element) {
-      const headerOffset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-
-    // Close mobile menu after clicking
     setIsMenuOpen(false);
   };
 
@@ -88,7 +84,7 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 onClick={handleClick}
-                className="text-foreground/80 hover:text-foreground transition-colors"
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.label}
               </a>
@@ -104,7 +100,7 @@ export default function Nav() {
                     key={item.href}
                     href={item.href}
                     onClick={handleClick}
-                    className="text-foreground/80 hover:text-foreground transition-colors"
+                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                   >
                     {item.label}
                   </a>
