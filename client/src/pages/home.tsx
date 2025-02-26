@@ -41,9 +41,19 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="body-lg max-w-2xl"
+              className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6"
             >
-              Currently serving as a Volunteer Product Manager for AI at Oakyard. Former Product Owner at Losung360 and Product Engineering Specialist at EY. With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
+              <span className="block">
+                Currently serving as a Volunteer Product Manager for AI at Oakyard.
+              </span>
+
+              <span className="block">
+                Former Product Owner at Losung360 and Product Engineering Specialist at EY.
+              </span>
+
+              <span className="block">
+                With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
+              </span>
             </motion.p>
           </motion.div>
         </div>
