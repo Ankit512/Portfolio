@@ -43,9 +43,9 @@ export default function Nav() {
             transition={{ duration: 0.2 }}
           >
             <img 
-              src="/images/ankit-memoji.svg" 
+              src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
-              className="w-10 h-10 object-contain mix-blend-normal group-hover:border-purple-600 transition-all"
+              className="w-10 h-10 object-contain mix-blend-normal group-hover:opacity-60 transition-all"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
