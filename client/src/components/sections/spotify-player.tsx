@@ -13,7 +13,7 @@ interface Playlist {
 }
 
 export default function SpotifyPlayer() {
-  const { data: playlists, isLoading: playlistsLoading } = useQuery({
+  const { data: playlists, isLoading } = useQuery({
     queryKey: ['spotify-playlists'],
     queryFn: async () => {
       const response = await fetch('/api/spotify/playlists');
@@ -23,26 +23,14 @@ export default function SpotifyPlayer() {
     staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });
 
-  const { data: likedSongs, isLoading: likedSongsLoading } = useQuery({
-    queryKey: ['spotify-liked-songs'],
-    queryFn: async () => {
-      const response = await fetch('/api/spotify/liked-songs');
-      if (!response.ok) throw new Error('Failed to fetch liked songs');
-      return response.json() as Promise<Playlist>;
-    },
-    staleTime: 5 * 60 * 1000,
-  });
-
-  const isLoading = playlistsLoading || likedSongsLoading;
-
   if (isLoading) {
     return (
       <section className="section-spacing bg-secondary/5">
         <div className="container">
           <div className="animate-pulse">
             <div className="h-8 w-48 bg-muted rounded mb-4"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[1, 2, 3].map((i) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="h-64 bg-muted rounded"></div>
               ))}
             </div>
@@ -52,7 +40,7 @@ export default function SpotifyPlayer() {
     );
   }
 
-  if (!playlists?.length && !likedSongs) {
+  if (!playlists?.length) {
     return (
       <section className="section-spacing bg-secondary/5">
         <div className="container">
@@ -86,45 +74,7 @@ export default function SpotifyPlayer() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {/* Liked Songs at the top */}
-          {likedSongs && (
-            <motion.div
-              key={likedSongs.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <a
-                href={likedSongs.spotifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <Card className="bg-card/20 border border-border overflow-hidden hover:bg-card/30 transition-colors">
-                  <CardContent className="p-3">
-                    <div className="aspect-square mb-2 overflow-hidden rounded-md">
-                      <img
-                        src={likedSongs.imageUrl}
-                        alt={`${likedSongs.name} cover`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <h4 className="text-sm font-semibold mb-0.5 line-clamp-1">{likedSongs.name}</h4>
-                    <p className="text-muted-foreground text-xs mb-1 line-clamp-1">
-                      {likedSongs.description}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {likedSongs.tracksTotal} {likedSongs.tracksTotal === 1 ? 'track' : 'tracks'}
-                    </p>
-                  </CardContent>
-                </Card>
-              </a>
-            </motion.div>
-          )}
-
-          {/* Regular playlists */}
-          {playlists?.map((playlist) => (
+          {playlists.map((playlist) => (
             <motion.div
               key={playlist.id}
               initial={{ opacity: 0, scale: 0.95 }}
