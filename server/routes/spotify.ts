@@ -48,4 +48,29 @@ router.get("/playlists", async (req, res) => {
   }
 });
 
+router.get("/liked-songs", async (req, res) => {
+  try {
+    const userId = "6oauivyjugmc8akmeekrkeezg"; // Your Spotify user ID
+    const data = await spotifyApi.getMySavedTracks();
+
+    if (!data.body || !data.body.items) {
+      return res.json(null);
+    }
+
+    const likedSongs = {
+      id: 'liked-songs',
+      name: 'Liked Songs',
+      description: 'Your favorite tracks on Spotify',
+      imageUrl: 'https://misc.scdn.co/liked-songs/liked-songs-640.png',
+      tracksTotal: data.body.total,
+      spotifyUrl: `https://open.spotify.com/user/${userId}/liked`,
+    };
+
+    res.json(likedSongs);
+  } catch (error) {
+    console.error('Error fetching liked songs:', error);
+    res.status(500).json({ error: 'Failed to fetch liked songs' });
+  }
+});
+
 export default router;
