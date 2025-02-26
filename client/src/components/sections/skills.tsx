@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ResponsiveRadar } from '@nivo/radar';
+import { useTheme } from "@/components/theme-provider";
 
 const skillCategories = [
   {
@@ -50,6 +51,8 @@ const chartData = [
 ];
 
 export default function Skills() {
+  const { theme } = useTheme();
+
   return (
     <section id="skills" className="section-spacing bg-secondary/5">
       <div className="container px-4">
@@ -98,20 +101,28 @@ export default function Skills() {
               theme={{
                 background: "transparent",
                 text: {
-                  fill: "#000000",
-                  fontSize: 11
+                  fill: theme === 'dark' ? "#ffffff" : "#000000",
+                  fontSize: 11,
                 },
                 tooltip: {
                   container: {
-                    background: '#ffffff',
-                    color: '#000000',
+                    background: theme === 'dark' ? '#1a1a1a' : '#ffffff',
+                    color: theme === 'dark' ? '#ffffff' : '#000000',
+                    fontSize: 12,
+                    borderRadius: '4px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                   }
                 },
                 grid: {
                   line: {
-                    stroke: "#404040",
+                    stroke: theme === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
                     strokeWidth: 1,
                   },
+                },
+                dots: {
+                  text: {
+                    fill: theme === 'dark' ? "#ffffff" : "#000000",
+                  }
                 },
               }}
             />
