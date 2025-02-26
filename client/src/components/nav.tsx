@@ -32,16 +32,22 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
       <div className="container px-4 sm:px-8 py-4">
         <div className="flex justify-between items-center">
-          <a 
+          <motion.a 
             href="#" 
-            className="text-foreground text-xl sm:text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity"
+            className="group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.2 }}
           >
-            AK
-          </a>
+            <img 
+              src="/images/ankit memeoji new_1.jpg" 
+              alt="Ankit's Memoji" 
+              className="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-purple-600 transition-all"
+            />
+          </motion.a>
 
           <div className="flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
             {menuItems.map((item) => (
