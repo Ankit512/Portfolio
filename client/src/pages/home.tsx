@@ -364,7 +364,7 @@ function EducationCard({
         <img
           src={logo}
           alt={institution}
-          className="h-10 w-10 object-contain rounded-lg"
+          className="h-16 w-16 object-contain rounded-lg"
           onError={(e) => {
             console.error('Education logo failed to load:', logo);
             const target = e.target as HTMLImageElement;
