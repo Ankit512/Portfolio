@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function Nav() {
   const menuItems = [
@@ -32,20 +31,18 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
       <div className="container px-4 sm:px-8 py-4">
         <div className="flex justify-between items-center">
-          <motion.a 
+          <a 
             href="#" 
             className="group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.2 }}
           >
             <img 
               src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
-              className="w-10 h-10 object-contain mix-blend-normal group-hover:opacity-60 transition-all"
+              className="w-10 h-10 object-contain mix-blend-normal"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
@@ -56,7 +53,7 @@ export default function Nav() {
                 WebkitFilter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)'
               }}
             />
-          </motion.a>
+          </a>
 
           <div className="flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
             {menuItems.map((item) => (
