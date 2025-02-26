@@ -89,13 +89,13 @@ export default function Skills() {
             className="flex flex-col gap-4"
           >
             {/* Radar Chart */}
-            <div className="h-[320px] bg-card/20 rounded-lg border border-border p-4">
+            <div className="h-[340px] bg-card/20 rounded-lg border border-border p-4">
               <ResponsiveRadar
                 data={chartData}
                 keys={['Score']}
                 indexBy="skill"
                 maxValue={100}
-                margin={{ top: 45, right: 55, bottom: 45, left: 55 }}
+                margin={{ top: 45, right: 60, bottom: 45, left: 60 }}
                 borderWidth={2}
                 borderColor="rgba(147, 51, 234, 0.5)"
                 gridLabelOffset={24}

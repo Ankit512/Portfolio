@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Calendar, ArrowDown } from "lucide-react";
+import { Building2, Calendar, ArrowDown, ArrowUp } from "lucide-react";
 
 const experiences = [
   {
@@ -121,12 +121,12 @@ export default function Experience() {
 
               {index < experiences.length - 1 && (
                 <motion.div
-                  initial={{ opacity: 0, y: -5 }}
+                  initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.1 }}
                   className="flex justify-center my-2"
                 >
-                  <ArrowDown className="w-5 h-5 text-purple-600/50" />
+                  <ArrowUp className="w-5 h-5 text-purple-600/50" />
                 </motion.div>
               )}
             </div>
