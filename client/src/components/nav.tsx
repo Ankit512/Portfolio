@@ -3,16 +3,19 @@ import { useTheme } from "@/components/theme-provider";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Helper for GitHub Pages base URL
+const base = "/ankitkumar-portfolio";
+
 export default function Nav() {
   const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: "/ankitkumar-portfolio#about", label: "About" },
-    { href: "/ankitkumar-portfolio#work", label: "Work" },
-    { href: "/ankitkumar-portfolio#projects", label: "Projects" },
-    { href: "/ankitkumar-portfolio#spotify", label: "Spotify" },
-    { href: "/ankitkumar-portfolio#contact", label: "Contact" }
+    { href: `${base}#about`, label: "About" },
+    { href: `${base}#work`, label: "Work" },
+    { href: `${base}#projects`, label: "Projects" },
+    { href: `${base}#spotify`, label: "Spotify" },
+    { href: `${base}#contact`, label: "Contact" }
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -51,12 +54,12 @@ export default function Nav() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a 
-            href="/ankitkumar-portfolio#about" 
+            href={`${base}#about`}
             onClick={handleClick}
             className="relative flex items-center"
           >
             <img 
-              src="/ankitkumar-portfolio/images/ankit-memoji-new.png" 
+              src={`${base}/images/ankit-memoji-new.png`}
               alt="Ankit's Memoji" 
               className="w-12 h-12 object-contain"
               style={{
