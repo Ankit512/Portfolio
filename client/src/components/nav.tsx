@@ -44,7 +44,7 @@ export default function Nav() {
             <img 
               src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
-              className="w-14 h-14 object-contain mix-blend-normal"
+              className="w-16 h-16 object-contain mix-blend-normal"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
