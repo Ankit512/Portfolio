@@ -43,13 +43,17 @@ export default function Nav() {
             transition={{ duration: 0.2 }}
           >
             <img 
-              src="/images/ankit-memoji.jpg" 
+              src="/images/ankit-memoji.svg" 
               alt="Ankit's Memoji" 
-              className="w-10 h-10 rounded-full object-cover border-2 border-transparent group-hover:border-purple-600 transition-all"
+              className="w-10 h-10 object-contain mix-blend-normal group-hover:border-purple-600 transition-all"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
                 target.src = '/images/project-abstract.svg';
+              }}
+              style={{
+                filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))',
+                WebkitFilter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))'
               }}
             />
           </motion.a>
