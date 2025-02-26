@@ -121,7 +121,7 @@ export default function Home() {
                   <img 
                     src="/images/logos/shipmaxx-new.png" 
                     alt="Shipmaxx" 
-                    className="h-12 w-12 object-contain" 
+                    className="h-10 w-auto object-contain" 
                   />
                   <h3 className="heading-md flex items-center gap-3">
                     Shipmaxx.in
