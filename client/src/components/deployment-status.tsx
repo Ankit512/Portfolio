@@ -20,7 +20,7 @@ export default function DeploymentStatus() {
     const fetchDeploymentStatus = async () => {
       try {
         const owner = 'Ankit512'; // Your GitHub username
-        const repo = 'portfolio'; // Your repository name
+        const repo = 'Portfolio'; // Updated to match the exact repository name
 
         const response = await fetch(
           `https://api.github.com/repos/${owner}/${repo}/deployments`
