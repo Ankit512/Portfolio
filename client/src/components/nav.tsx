@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useTheme } from "@/components/theme-provider";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Nav() {
   const { theme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const menuItems = [
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
@@ -38,52 +42,76 @@ export default function Nav() {
         behavior: 'smooth'
       });
     }
+
+    // Close mobile menu after clicking
+    setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
+    <nav className="fixed top-0 left-0 z-50 w-full bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="container px-4 sm:px-8 py-4">
         <div className="flex justify-between items-center">
+          {/* Logo */}
           <a 
-            href="#about" 
+            href="#about"
             onClick={handleClick}
-            className="relative"
+            className="relative flex items-center"
           >
             <img 
               src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
-              className="w-24 h-24 object-contain mix-blend-normal"
-              onError={(e) => {
-                console.error('Image failed to load');
-                const target = e.target as HTMLImageElement;
-                target.src = '/images/project-abstract.svg';
-              }}
+              className="w-12 h-12 object-contain"
               style={{
                 filter: theme === 'dark' 
                   ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)' 
                   : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
-                WebkitFilter: theme === 'dark'
-                  ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)'
-                  : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
-                mixBlendMode: theme === 'dark' ? 'normal' : 'multiply',
-                transform: 'translateY(4px)',
-                marginTop: '-4px'
+                mixBlendMode: theme === 'dark' ? 'normal' : 'multiply'
               }}
             />
           </a>
 
-          <div className="hidden md:flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Toggle Menu</span>
+          </Button>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-6">
             {menuItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={handleClick}
-                className="text-foreground hover:opacity-60 transition-opacity whitespace-nowrap"
+                className="text-foreground/80 hover:text-foreground transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <div className="absolute top-full left-0 right-0 bg-background border-b border-border md:hidden">
+              <div className="container px-4 py-4 flex flex-col gap-4">
+                {menuItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={handleClick}
+                    className="text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </nav>
