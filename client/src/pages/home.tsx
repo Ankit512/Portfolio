@@ -7,7 +7,7 @@ import Projects from "@/components/sections/projects";
 
 export default function Home() {
   return (
-    <main className="bg-black">
+    <main className="bg-background">
       {/* Hero Section */}
       <section className="h-screen flex items-center">
         <div className="container">
@@ -21,7 +21,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-xl md:text-2xl text-neutral-400 mb-4 tracking-tight"
+              className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
             >
               ANKIT KUMAR
             </motion.h2>
@@ -70,7 +70,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h2 className="text-xl text-neutral-400 mb-4">FEATURED PROJECT</h2>
+            <h2 className="text-xl text-muted-foreground mb-4">FEATURED PROJECT</h2>
             <h3 className="heading-lg mb-12">Launched Product</h3>
           </motion.div>
 
@@ -82,7 +82,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="group relative"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-neutral-900 rounded-lg border border-neutral-800">
+              <div className="aspect-[4/3] overflow-hidden bg-background rounded-lg border border-neutral-800">
                 <img
                   src="/images/projects/shipmaxx-dashboard.png"
                   alt="Shipmaxx.in Platform Interface"
@@ -119,7 +119,7 @@ export default function Home() {
                     <ExternalLink className="h-6 w-6 inline-block opacity-60" />
                   </h3>
                 </div>
-                <p className="body-md text-neutral-400">
+                <p className="body-md text-muted-foreground">
                   Shipmaxx is the all-in-one order management software designed to simplify shipping for growing e-commerce businesses.
                   Seamlessly integrating with Shopify and other online marketplaces, Shipmaxx provides a unified interface to efficiently
                   manage multi-channel orders. With over a decade of e-commerce expertise, Shipmaxx partners with more than 10 top courier
@@ -141,7 +141,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-xl text-neutral-400 mb-4">EDUCATION</h2>
+            <h2 className="text-xl text-muted-foreground mb-4">EDUCATION</h2>
             <h3 className="heading-lg mb-12">Academic Background</h3>
           </motion.div>
 
@@ -247,7 +247,7 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: any; labe
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-neutral-400 hover:text-white transition-colors"
+      className="text-muted-foreground hover:text-foreground transition-colors"
       whileHover={{ scale: 1.1 }}
       transition={{ duration: 0.2 }}
       aria-label={label}
@@ -320,7 +320,7 @@ function WorkCard({ title, role, description, link, period, logo }: {
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-xl text-purple-600">{role}</p>
-          <p className="text-lg text-neutral-400">{period}</p>
+          <p className="text-lg text-muted-foreground">{period}</p>
           <p className="body-md mt-2">{description}</p>
         </div>
       </a>
@@ -361,14 +361,14 @@ function EducationCard({
           <h3 className="heading-md">
             {institution}
           </h3>
-          <p className="text-neutral-400">{location}</p>
+          <p className="text-muted-foreground">{location}</p>
         </div>
       </div>
 
       <div className="space-y-6">
         <div>
           <p className="text-xl text-purple-600">{degree}</p>
-          <p className="text-lg text-neutral-400">{period}</p>
+          <p className="text-lg text-muted-foreground">{period}</p>
           <p className="body-md mt-4">{description}</p>
         </div>
 
@@ -379,7 +379,7 @@ function EducationCard({
               {coursework.map((course, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                  <span className="text-neutral-400">{course}</span>
+                  <span className="text-muted-foreground">{course}</span>
                 </div>
               ))}
             </div>
@@ -393,7 +393,7 @@ function EducationCard({
               {achievements.map((achievement, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                  <span className="text-neutral-400">{achievement}</span>
+                  <span className="text-muted-foreground">{achievement}</span>
                 </div>
               ))}
             </div>

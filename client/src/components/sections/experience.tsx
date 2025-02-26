@@ -83,18 +83,18 @@ export default function Experience() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-xl text-neutral-400 mb-4">CAREER ROADMAP</h2>
+          <h2 className="text-xl text-muted-foreground mb-4">CAREER ROADMAP</h2>
           <h3 className="heading-lg">Professional Journey</h3>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
           {experiences.map((exp, index) => (
             <div key={index}>
-              <Card className="bg-neutral-900/20 border border-neutral-800 mb-2">
+              <Card className="bg-card/20 border-border">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
-                      <h3 className="text-xl font-semibold">{exp.position}</h3>
+                      <h3 className="text-xl font-semibold text-foreground">{exp.position}</h3>
                       <div className="flex flex-wrap items-center gap-2 text-muted-foreground mt-1">
                         <Building2 className="h-4 w-4 flex-shrink-0" />
                         <span>{exp.company}</span>
@@ -112,7 +112,7 @@ export default function Experience() {
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-purple-600 flex-shrink-0" />
-                        <span className="text-neutral-400">{achievement}</span>
+                        <span className="text-muted-foreground">{achievement}</span>
                       </li>
                     ))}
                   </ul>
