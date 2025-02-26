@@ -20,14 +20,13 @@ const skillCategories = [
   {
     title: "Data Engineering & Analytics",
     skills: ["SQL", "ETL Development", "Data Pipeline Design", "Database Migration", "Data Warehousing"],
-    className: "md:col-span-1"
-  },
-  {
-    title: "AI & Machine Learning",
-    skills: ["AI Agents", "Multi Modality", "RAG", "Fine Tuning", "Prompt Engineering"],
-    className: "md:col-span-1"
   }
 ];
+
+const aiSkills = {
+  title: "AI & Machine Learning",
+  skills: ["AI Agents", "Multi Modality", "RAG", "Fine Tuning", "Prompt Engineering"],
+};
 
 const chartData = [
   {
@@ -80,57 +79,85 @@ export default function Skills() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="h-[350px] bg-card/20 rounded-lg border border-border p-4"
+            className="flex flex-col gap-8"
           >
-            <ResponsiveRadar
-              data={chartData}
-              keys={['Score']}
-              indexBy="skill"
-              maxValue={100}
-              margin={{ top: 50, right: 60, bottom: 40, left: 60 }}
-              borderWidth={2}
-              borderColor="rgba(147, 51, 234, 0.5)"
-              gridLabelOffset={24}
-              dotSize={8}
-              dotColor="rgba(147, 51, 234, 0.8)"
-              dotBorderWidth={1}
-              colors={['rgba(147, 51, 234, 0.3)']}
-              fillOpacity={0.4}
-              blendMode="normal"
-              motionConfig="gentle"
-              gridShape="circular"
-              theme={{
-                background: "transparent",
-                text: {
-                  fill: theme === 'dark' ? "#ffffff" : "#000000",
-                  fontSize: 11,
-                },
-                tooltip: {
-                  container: {
-                    background: theme === 'dark' ? '#1a1a1a' : '#ffffff',
-                    color: theme === 'dark' ? '#ffffff' : '#000000',
-                    fontSize: 12,
-                    borderRadius: '4px',
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                  }
-                },
-                grid: {
-                  line: {
-                    stroke: theme === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
-                    strokeWidth: 1,
-                  },
-                },
-                dots: {
+            {/* Radar Chart */}
+            <div className="h-[350px] bg-card/20 rounded-lg border border-border p-4">
+              <ResponsiveRadar
+                data={chartData}
+                keys={['Score']}
+                indexBy="skill"
+                maxValue={100}
+                margin={{ top: 50, right: 60, bottom: 40, left: 60 }}
+                borderWidth={2}
+                borderColor="rgba(147, 51, 234, 0.5)"
+                gridLabelOffset={24}
+                dotSize={8}
+                dotColor="rgba(147, 51, 234, 0.8)"
+                dotBorderWidth={1}
+                colors={['rgba(147, 51, 234, 0.3)']}
+                fillOpacity={0.4}
+                blendMode="normal"
+                motionConfig="gentle"
+                gridShape="circular"
+                theme={{
+                  background: "transparent",
                   text: {
                     fill: theme === 'dark' ? "#ffffff" : "#000000",
-                  }
-                },
-              }}
-            />
+                    fontSize: 11,
+                  },
+                  tooltip: {
+                    container: {
+                      background: theme === 'dark' ? '#1a1a1a' : '#ffffff',
+                      color: theme === 'dark' ? '#ffffff' : '#000000',
+                      fontSize: 12,
+                      borderRadius: '4px',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    }
+                  },
+                  grid: {
+                    line: {
+                      stroke: theme === 'dark' ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)",
+                      strokeWidth: 1,
+                    },
+                  },
+                  dots: {
+                    text: {
+                      fill: theme === 'dark' ? "#ffffff" : "#000000",
+                    }
+                  },
+                }}
+              />
+            </div>
+
+            {/* AI & ML Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Card className="bg-card/20 border border-border">
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-semibold mb-3">{aiSkills.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {aiSkills.skills.map((skill, i) => (
+                      <Badge 
+                        key={i} 
+                        variant="secondary" 
+                        className="text-sm py-1 hover:bg-purple-600/20 transition-colors cursor-default"
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </motion.div>
 
           <div className="grid gap-4">
-            {skillCategories.slice(0, 3).map((category, index) => (
+            {skillCategories.map((category, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -156,35 +183,6 @@ export default function Skills() {
                 </Card>
               </motion.div>
             ))}
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {skillCategories.slice(3).map((category, index) => (
-                <motion.div
-                  key={index + 3}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: (index + 3) * 0.1 }}
-                >
-                  <Card className="bg-card/20 border border-border h-full">
-                    <CardContent className="p-4">
-                      <h3 className="text-lg font-semibold mb-3">{category.title}</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill, i) => (
-                          <Badge 
-                            key={i} 
-                            variant="secondary" 
-                            className="text-sm py-1 hover:bg-purple-600/20 transition-colors cursor-default"
-                          >
-                            {skill}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
