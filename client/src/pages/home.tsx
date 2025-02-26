@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
-import { SiSpotify } from "react-icons/si";
+import { SiSpotify, SiMedium, SiX } from "react-icons/si";
 import Blog from "@/components/sections/blog";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
@@ -241,6 +241,16 @@ export default function Home() {
                 href="https://github.com/Ankit512"
                 icon={Github}
                 label="GitHub"
+              />
+              <SocialLink
+                href="https://twitter.com/utd_ank"
+                icon={SiX}
+                label="X (Twitter)"
+              />
+              <SocialLink
+                href="https://medium.com/@ankit512.kumar"
+                icon={SiMedium}
+                label="Medium"
               />
               <SocialLink
                 href="mailto:ankit512.kumar@gmail.com"
