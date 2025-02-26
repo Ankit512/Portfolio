@@ -30,45 +30,51 @@ export default function Nav() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg bg-background/80 border-b border-border/50">
-      <div className="container px-6 h-16 flex items-center justify-between">
-        <a 
-          href="#" 
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-          className="relative group"
-        >
-          <img 
-            src="/images/ankit-memoji.png" 
-            alt="Ankit's Memoji" 
-            className="w-10 h-10 object-contain transform transition-all duration-300 group-hover:scale-110"
-            onError={(e) => {
-              console.error('Image failed to load');
-              const target = e.target as HTMLImageElement;
-              target.src = '/images/project-abstract.svg';
+    <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
+      <div className="container px-4 sm:px-8 py-4">
+        <div className="flex justify-between items-center">
+          <a 
+            href="#" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            style={{
-              filter: theme === 'dark' 
-                ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.2)) brightness(1.2)' 
-                : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))',
-              mixBlendMode: theme === 'dark' ? 'normal' : 'multiply',
-            }}
-          />
-        </a>
+          >
+            <img 
+              src="/images/ankit-memoji-new.png" 
+              alt="Ankit's Memoji" 
+              className="w-24 h-24 object-contain mix-blend-normal"
+              onError={(e) => {
+                console.error('Image failed to load');
+                const target = e.target as HTMLImageElement;
+                target.src = '/images/project-abstract.svg';
+              }}
+              style={{
+                filter: theme === 'dark' 
+                  ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)' 
+                  : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
+                WebkitFilter: theme === 'dark'
+                  ? 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.3)'
+                  : 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
+                mixBlendMode: theme === 'dark' ? 'normal' : 'multiply',
+                transform: 'translateY(4px)',
+                marginTop: '-4px'
+              }}
+            />
+          </a>
 
-        <div className="flex items-center gap-8">
-          {menuItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={handleClick}
-              className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200"
-            >
-              {item.label}
-            </a>
-          ))}
+          <div className="flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
+            {menuItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={handleClick}
+                className="text-foreground hover:opacity-60 transition-opacity whitespace-nowrap"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
