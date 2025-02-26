@@ -65,7 +65,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section-spacing bg-secondary/5">
-      <div className="container px-4">
+      <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,25 +73,25 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <h2 className="text-xl text-muted-foreground mb-4">MY SKILLS</h2>
+          <h2 className="text-xl text-muted-foreground">MY SKILLS</h2>
           <h3 className="heading-lg mb-6">Building products for humans</h3>
           <p className="body-md max-w-2xl">
             With my startup background, I bring a lean mindset for building products fast. My 
-            psychology background uniquely connects me to building products that understand and 
-            enhance user experiences
+            technical expertise in Generative AI and Data Strategy enables me to develop
+            impactful products utilizing machine learning, generative AI, and big data solutions.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div className="grid md:grid-cols-2 gap-4 items-start">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-4"
           >
             {/* Radar Chart */}
-            <div className="h-[350px] bg-card/20 rounded-lg border border-border p-4 mb-4">
+            <div className="h-[350px] bg-card/20 rounded-lg border border-border p-4">
               <ResponsiveRadar
                 data={chartData}
                 keys={['Score']}
