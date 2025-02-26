@@ -3,19 +3,16 @@ import { useTheme } from "@/components/theme-provider";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Helper for GitHub Pages base URL
-const base = "/ankitkumar-portfolio";
-
 export default function Nav() {
   const { theme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: `${base}#about`, label: "About" },
-    { href: `${base}#work`, label: "Work" },
-    { href: `${base}#projects`, label: "Projects" },
-    { href: `${base}#spotify`, label: "Spotify" },
-    { href: `${base}#contact`, label: "Contact" }
+    { href: "#about", label: "About" },
+    { href: "#work", label: "Work" },
+    { href: "#projects", label: "Projects" },
+    { href: "#spotify", label: "Spotify" },
+    { href: "#contact", label: "Contact" }
   ];
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -23,16 +20,14 @@ export default function Nav() {
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
 
-    const targetId = href.split('#')[1];
-
     // If it's the About section, scroll to top
-    if (targetId === 'about') {
+    if (href === '#about') {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     } else {
-      const element = document.getElementById(targetId);
+      const element = document.querySelector(href);
       if (element) {
         const headerOffset = 100;
         const elementPosition = element.getBoundingClientRect().top;
@@ -54,12 +49,12 @@ export default function Nav() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a 
-            href={`${base}#about`}
+            href="#about" 
             onClick={handleClick}
             className="relative flex items-center"
           >
             <img 
-              src={`${base}/images/ankit-memoji-new.png`}
+              src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
               className="w-12 h-12 object-contain"
               style={{
