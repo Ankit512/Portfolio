@@ -45,11 +45,9 @@ export default function Nav() {
       <div className="container px-4 sm:px-8 py-4">
         <div className="flex justify-between items-center">
           <a 
-            href="#" 
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
+            href="#about" 
+            onClick={handleClick}
+            className="relative"
           >
             <img 
               src="/images/ankit-memoji-new.png" 
@@ -74,7 +72,7 @@ export default function Nav() {
             />
           </a>
 
-          <div className="flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
+          <div className="hidden md:flex items-center gap-4 sm:gap-8 text-sm sm:text-base">
             {menuItems.map((item) => (
               <a
                 key={item.href}
