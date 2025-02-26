@@ -43,9 +43,7 @@ export default function Home() {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="body-lg max-w-2xl"
             >
-              With my startup background, I bring a lean mindset for building products fast.
-              My technical expertise in Generative AI and Data Strategy enables me to develop
-              impactful products utilizing machine learning, generative AI, and big data solutions.
+              I am currently serving as a Volunteer Product Manager for AI at Oakyard. Former Product Owner at Losung360 and Product Engineering Specialist at EY. From my master's in management, I built my technical expertise in ‍generative AI as well as data strategy. With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
             </motion.p>
           </motion.div>
         </div>
