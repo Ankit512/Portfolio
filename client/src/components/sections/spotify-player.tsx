@@ -16,9 +16,51 @@ export default function SpotifyPlayer() {
   const { data: playlists, isLoading } = useQuery({
     queryKey: ['spotify-playlists'],
     queryFn: async () => {
-      const response = await fetch('/api/spotify/playlists');
-      if (!response.ok) throw new Error('Failed to fetch playlists');
-      return response.json() as Promise<Playlist[]>;
+      // For GitHub Pages deployment, we'll fetch directly from the Spotify API
+      const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+      const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
+
+      // Get access token
+      const authResponse = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
+        },
+        body: 'grant_type=client_credentials',
+      });
+
+      if (!authResponse.ok) {
+        throw new Error('Failed to get Spotify access token');
+      }
+
+      const authData = await authResponse.json();
+
+      // Fetch playlists
+      const userId = "6oauivyjugmc8akmeekrkeezg";
+      const response = await fetch(
+        `https://api.spotify.com/v1/users/${userId}/playlists?limit=20`,
+        {
+          headers: {
+            'Authorization': `Bearer ${authData.access_token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch playlists');
+      }
+
+      const data = await response.json();
+
+      return data.items.map((playlist: any) => ({
+        id: playlist.id,
+        name: playlist.name,
+        description: playlist.description,
+        imageUrl: playlist.images[0]?.url || '',
+        tracksTotal: playlist.tracks.total,
+        spotifyUrl: playlist.external_urls.spotify,
+      }));
     },
     staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });
