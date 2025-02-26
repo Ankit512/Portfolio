@@ -4,6 +4,7 @@ import Blog from "@/components/sections/blog";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
 import Projects from "@/components/sections/projects";
+import SpotifyPlayer from "@/components/sections/spotify-player";
 
 export default function Home() {
   return (
@@ -206,6 +207,9 @@ export default function Home() {
 
       {/* Blog Section */}
       <Blog />
+
+      {/* Spotify Player Section */}
+      <SpotifyPlayer />
 
       {/* Contact Section */}
       <section id="contact" className="h-screen flex items-center">
