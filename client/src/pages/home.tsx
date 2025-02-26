@@ -118,7 +118,11 @@ export default function Home() {
                 className="group-hover:opacity-60 transition-opacity"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <img src="/images/logos/shipmaxx.svg" alt="Shipmaxx" className="h-8 w-8" />
+                  <img 
+                    src="/images/logos/shipmaxx-new.png" 
+                    alt="Shipmaxx" 
+                    className="h-12 w-12 object-contain" 
+                  />
                   <h3 className="heading-md flex items-center gap-3">
                     Shipmaxx.in
                     <ExternalLink className="h-6 w-6 inline-block opacity-60" />
