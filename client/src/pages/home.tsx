@@ -18,19 +18,19 @@ export default function Home() {
             className="max-w-[90vw]"
           >
             <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
-              >
-                ANKIT KUMAR
-              </motion.h2>
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight font-sans"
+            >
+              ANKIT KUMAR
+            </motion.h2>
 
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="heading-xl mb-8"
+              className="heading-xl mb-8 font-serif"
             >
               Product Manager for
               <br />
@@ -41,7 +41,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6"
+              className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6 font-sans"
             >
               <span className="block">
                 Currently serving as a Volunteer Product Manager for AI at Oakyard.
