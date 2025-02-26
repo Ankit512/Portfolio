@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import Nav from "@/components/nav";
 import { ThemeProvider } from "@/components/theme-provider";
 import ThemeToggle from "@/components/theme-toggle";
+import ParticlesBackground from "@/components/particles-background";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
         <div className="min-h-screen bg-background text-foreground antialiased">
+          <ParticlesBackground />
           <Nav />
           <Router />
           <ThemeToggle />
