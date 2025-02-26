@@ -31,8 +31,8 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
-      <div className="container px-4 sm:px-8 py-4">
-        <div className="flex justify-between items-center">
+      <div className="container px-6 sm:px-12 py-6" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+        <div className="flex justify-between items-center" style={{ height: '80px' }}>
           <a 
             href="#" 
             className="group"
@@ -42,9 +42,9 @@ export default function Nav() {
             }}
           >
             <img 
-              src="/images/ankit-memoji-new.png" 
+              src="/images/ankit_memeoji-removebg-preview.png" 
               alt="Ankit's Memoji" 
-              className="w-16 h-16 object-contain mix-blend-normal"
+              className="w-16 h-16 object-contain mix-blend-multiply"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
