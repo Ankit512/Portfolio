@@ -192,8 +192,8 @@ export default function Home() {
               achievements={[
                 "Graduated with Distinction (78.6%, First Class)",
                 "Best Project Award for Final Year Project",
-                "Technical Lead of Coding Club",
-                "Published research paper on AI applications"
+                "Founder at Think-Digital",
+                "Published research paper on Object Detection using Trigger Word for High Technology Letters (Issue: April 2021)"
               ]}
             />
           </div>
