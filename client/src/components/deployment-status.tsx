@@ -23,10 +23,12 @@ export default function DeploymentStatus() {
       const owner = 'Ankit512';
       const repo = 'Portfolio';
 
+      console.log('Fetching deployment status for:', `${owner}/${repo}`);
       const response = await fetch(
         `https://api.github.com/repos/${owner}/${repo}/deployments`
       );
 
+      console.log('Deployment API response status:', response.status);
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error('Repository or deployments not found. Please check the repository settings and ensure GitHub Pages is enabled.');
@@ -35,26 +37,31 @@ export default function DeploymentStatus() {
       }
 
       const deployments = await response.json();
+      console.log('Found deployments:', deployments.length);
 
       if (deployments.length === 0) {
-        throw new Error('No deployments found. The first deployment will be created when you push to the main branch.');
+        throw new Error('No deployments found. Please check GitHub Actions tab for deployment status.');
       }
 
       // Get the latest deployment status
       const latestDeployment = deployments[0];
+      console.log('Latest deployment:', latestDeployment.id);
+
       const statusResponse = await fetch(latestDeployment.statuses_url);
+      console.log('Status API response:', statusResponse.status);
 
       if (!statusResponse.ok) {
         throw new Error('Failed to fetch deployment status details');
       }
 
       const statusData = await statusResponse.json();
+      console.log('Deployment status:', statusData[0]?.state);
 
       if (statusData.length > 0) {
         setStatus(statusData[0]);
         setError(null);
       } else {
-        throw new Error('Deployment status not available yet');
+        throw new Error('Deployment status not available yet. Please check GitHub Actions tab.');
       }
     } catch (err) {
       console.error('Error fetching deployment status:', err);
@@ -94,21 +101,21 @@ export default function DeploymentStatus() {
               <p className="text-sm">{error}</p>
             </div>
             <div className="flex items-center gap-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 onClick={() => setRetryCount(c => c + 1)}
               >
                 Retry
               </Button>
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 asChild
               >
-                <a 
-                  href="https://github.com/Ankit512/Portfolio/deployments" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/Ankit512/Portfolio/deployments"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
@@ -141,7 +148,7 @@ export default function DeploymentStatus() {
           {status && (
             <>
               <div className="flex items-center gap-2 mb-2">
-                <Badge 
+                <Badge
                   variant="secondary"
                   className={statusVariants[status.state]}
                 >
