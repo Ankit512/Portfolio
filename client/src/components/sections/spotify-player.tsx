@@ -13,41 +13,47 @@ interface Playlist {
 }
 
 export default function SpotifyPlayer() {
-  const { data: playlists, isLoading } = useQuery({
+  const { data: playlists, isLoading, error } = useQuery({
     queryKey: ['spotify-playlists'],
     queryFn: async () => {
-      // For GitHub Pages deployment, we'll fetch directly from the Spotify API
       const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-      const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
-
-      // Get access token
-      const authResponse = await fetch('https://accounts.spotify.com/api/token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
-        },
-        body: 'grant_type=client_credentials',
-      });
-
-      if (!authResponse.ok) {
-        throw new Error('Failed to get Spotify access token');
+      if (!clientId) {
+        throw new Error('Spotify client ID not found');
       }
 
-      const authData = await authResponse.json();
+      // Use the implicit grant flow
+      const authEndpoint = 'https://accounts.spotify.com/authorize';
+      const redirectUri = window.location.origin + window.location.pathname;
+      const scope = 'playlist-read-private playlist-read-collaborative';
 
-      // Fetch playlists
+      // Check if we already have a token in session storage
+      let accessToken = sessionStorage.getItem('spotify_access_token');
+
+      if (!accessToken) {
+        // If no token exists, initiate the auth flow
+        const authUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&response_type=token`;
+        window.location.href = authUrl;
+        return [];
+      }
+
+      // Fetch playlists using the access token
       const userId = "6oauivyjugmc8akmeekrkeezg";
       const response = await fetch(
         `https://api.spotify.com/v1/users/${userId}/playlists?limit=20`,
         {
           headers: {
-            'Authorization': `Bearer ${authData.access_token}`,
+            'Authorization': `Bearer ${accessToken}`,
           },
         }
       );
 
       if (!response.ok) {
+        if (response.status === 401) {
+          // Token expired, clear it and reload to trigger new auth flow
+          sessionStorage.removeItem('spotify_access_token');
+          window.location.reload();
+          return [];
+        }
         throw new Error('Failed to fetch playlists');
       }
 
@@ -64,6 +70,20 @@ export default function SpotifyPlayer() {
     },
     staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });
+
+  // Handle access token from URL hash if present
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const params = new URLSearchParams(hash.substring(1));
+      const accessToken = params.get('access_token');
+      if (accessToken) {
+        sessionStorage.setItem('spotify_access_token', accessToken);
+        // Clean up the URL
+        window.location.hash = '';
+      }
+    }
+  }, []);
 
   if (isLoading) {
     return (
@@ -94,7 +114,9 @@ export default function SpotifyPlayer() {
           >
             <h2 className="text-xl text-muted-foreground mb-4">SPOTIFY</h2>
             <h3 className="heading-lg">My Playlists</h3>
-            <p className="text-muted-foreground">No playlists found.</p>
+            <p className="text-muted-foreground">
+              {error ? 'Error loading playlists. Please try again later.' : 'No playlists found.'}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -116,7 +138,7 @@ export default function SpotifyPlayer() {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {playlists.map((playlist) => (
+          {playlists.map((playlist: Playlist) => (
             <motion.div
               key={playlist.id}
               initial={{ opacity: 0, scale: 0.95 }}
