@@ -49,7 +49,7 @@ export default function Nav() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a 
-            href="#about"
+            href="#about" 
             onClick={handleClick}
             className="relative flex items-center"
           >
