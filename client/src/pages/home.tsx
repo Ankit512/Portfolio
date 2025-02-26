@@ -21,7 +21,10 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
+              className="text-2xl md:text-3xl font-semibold tracking-widest text-muted-foreground mb-4"
+              style={{
+                fontFamily: "monospace"
+              }}
             >
               ANKIT KUMAR
             </motion.h2>
