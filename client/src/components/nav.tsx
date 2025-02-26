@@ -52,8 +52,8 @@ export default function Nav() {
                 target.src = '/images/project-abstract.svg';
               }}
               style={{
-                filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))',
-                WebkitFilter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1))'
+                filter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)',
+                WebkitFilter: 'drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) brightness(1.02)'
               }}
             />
           </motion.a>
