@@ -54,7 +54,7 @@ export default function Nav() {
             className="relative flex items-center"
           >
             <img 
-              src="./images/ankit-memoji-new.png" 
+              src={import.meta.env.BASE_URL + "images/ankit-memoji-new.png"}
               alt="Ankit's Memoji" 
               className="w-12 h-12 object-contain"
               style={{

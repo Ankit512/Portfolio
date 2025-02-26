@@ -66,7 +66,12 @@ app.use((req, res, next) => {
       console.error('Error: dist/public directory not found. Run `npm run build` first');
       process.exit(1);
     }
-    app.use(express.static(distPath));
+
+    // Configure static file serving with proper paths
+    app.use(express.static(distPath, {
+      index: false, // Don't serve index.html for every path
+      dotfiles: 'deny' // Security: deny access to dotfiles
+    }));
 
     // Handle all routes in production
     app.get('*', (req, res, next) => {
