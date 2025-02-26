@@ -38,13 +38,15 @@ refreshAccessToken().catch(error => {
 
 router.get("/playlists", async (req, res) => {
   try {
-    const userId = "6oauivyjugmc8akmeekrkeezg"; // Your Spotify user ID
+    // Your Spotify user ID
+    const userId = "6oauivyjugmc8akmeekrkeezg";
 
     // Ensure we have a valid token
     if (!spotifyApi.getAccessToken()) {
       await refreshAccessToken();
     }
 
+    // Get user's public playlists
     const data = await spotifyApi.getUserPlaylists(userId, { limit: 20 });
 
     if (!data.body || !data.body.items) {
@@ -63,7 +65,7 @@ router.get("/playlists", async (req, res) => {
 
     console.log(`Successfully fetched ${playlists.length} playlists`);
     res.json(playlists);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error fetching playlists:', error);
 
     // Check if token expired

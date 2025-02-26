@@ -12,74 +12,18 @@ interface Playlist {
   spotifyUrl: string;
 }
 
-// Function to get access token using client credentials flow
-async function getSpotifyAccessToken() {
-  const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-  const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
-
-  if (!clientId || !clientSecret) {
-    throw new Error('Missing Spotify credentials');
-  }
-
-  const response = await fetch('https://accounts.spotify.com/api/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret)
-    },
-    body: 'grant_type=client_credentials'
-  });
-
-  if (!response.ok) {
-    throw new Error('Failed to get access token');
-  }
-
-  const data = await response.json();
-  return data.access_token;
-}
-
 export default function SpotifyPlayer() {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    getSpotifyAccessToken()
-      .then(token => setAccessToken(token))
-      .catch(error => console.error('Error getting access token:', error));
-  }, []);
-
   const { data: playlists, isLoading, error } = useQuery({
-    queryKey: ['spotify-playlists', accessToken],
+    queryKey: ['spotify-playlists'],
     queryFn: async () => {
-      if (!accessToken) return [];
-
-      const userId = "6oauivyjugmc8akmeekrkeezg"; // Your Spotify user ID
-      const response = await fetch(
-        `https://api.spotify.com/v1/users/${userId}/playlists`,
-        {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-          }
-        }
-      );
-
+      // For static site, fetch from the server endpoint
+      const response = await fetch('/api/spotify/playlists');
       if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Spotify API error:', errorData);
-        throw new Error(`Failed to fetch playlists: ${errorData.error?.message || 'Unknown error'}`);
+        throw new Error('Failed to fetch playlists');
       }
-
-      const data = await response.json();
-      return data.items.map((playlist: any) => ({
-        id: playlist.id,
-        name: playlist.name,
-        description: playlist.description,
-        imageUrl: playlist.images[0]?.url || '',
-        tracksTotal: playlist.tracks.total,
-        spotifyUrl: playlist.external_urls.spotify
-      }));
+      return response.json();
     },
-    enabled: !!accessToken,
-    staleTime: 50 * 60 * 1000 // Consider data fresh for 50 minutes
+    staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });
 
   if (isLoading) {
