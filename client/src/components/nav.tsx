@@ -29,12 +29,12 @@ export default function Nav() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 bg-black/80 backdrop-blur-sm w-full">
+    <nav className="fixed top-0 left-0 z-50 bg-background/80 backdrop-blur-sm w-full border-b border-border">
       <div className="container px-4 sm:px-8 py-4">
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className="text-white text-xl sm:text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity"
+            className="text-foreground text-xl sm:text-2xl font-medium tracking-tighter hover:opacity-60 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -49,7 +49,7 @@ export default function Nav() {
                 key={item.href}
                 href={item.href}
                 onClick={handleClick}
-                className="text-white hover:opacity-60 transition-opacity whitespace-nowrap"
+                className="text-foreground hover:opacity-60 transition-opacity whitespace-nowrap"
               >
                 {item.label}
               </a>
