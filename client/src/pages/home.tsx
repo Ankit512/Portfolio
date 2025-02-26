@@ -9,55 +9,68 @@ export default function Home() {
   return (
     <main className="bg-background">
       {/* Hero Section */}
-      <section className="h-screen flex items-center">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-[90vw]"
-          >
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
-            >
-              ANKIT KUMAR
-            </motion.h2>
+<section className="h-screen flex items-center">
+  <div className="container">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="max-w-[90vw]"
+    >
+      <motion.h2
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
+      >
+        ANKIT KUMAR
+      </motion.h2>
 
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="heading-xl mb-8"
-            >
-              Product Manager for
-              <br />
-              <span className="text-purple-600">AI & Data</span>
-            </motion.h1>
+      <motion.h1
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 0.6 }}
+        className="heading-xl mb-8"
+      >
+        Product Manager for
+        <br />
+        <span className="text-purple-600">AI & Data</span>
+      </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6"
-            >
-              <span className="block">
-                Currently serving as a Volunteer Product Manager for AI at Oakyard.
-              </span>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="w-48 h-48 mb-8"
+      >
+        <img
+          src="/images/ankit-memoji-hero.svg"
+          alt="Ankit's Memoji"
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
 
-              <span className="block">
-                Former Product Owner at Losung360 and Product Engineering Specialist at EY.
-              </span>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
+        className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6"
+      >
+        <span className="block">
+          Currently serving as a Volunteer Product Manager for AI at Oakyard.
+        </span>
 
-              <span className="block">
-                With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
-              </span>
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+        <span className="block">
+          Former Product Owner at Losung360 and Product Engineering Specialist at EY.
+        </span>
+
+        <span className="block">
+          With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
+        </span>
+      </motion.p>
+    </motion.div>
+  </div>
+</section>
 
       {/* Skills Section */}
       <Skills />

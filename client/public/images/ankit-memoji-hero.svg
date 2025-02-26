@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .memoji-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+  <image href="/images/ankit-memoji-new.png" class="memoji-img" x="0" y="0" width="512" height="512"/>
+</svg>
