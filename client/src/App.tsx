@@ -22,11 +22,13 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
-        <div className="min-h-screen bg-background text-foreground antialiased">
+        <div className="relative min-h-screen bg-background text-foreground antialiased">
           <ParticlesBackground />
-          <Nav />
-          <Router />
-          <ThemeToggle />
+          <div className="relative z-10">
+            <Nav />
+            <Router />
+            <ThemeToggle />
+          </div>
           <Toaster />
         </div>
       </ThemeProvider>

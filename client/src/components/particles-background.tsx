@@ -13,16 +13,25 @@ export default function ParticlesBackground() {
 
   return (
     <Particles
-      className="fixed inset-0 z-[-10]" // corrected z-index for better layering
+      className="fixed inset-0 -z-1"
       id="tsparticles"
       init={particlesInit}
       options={{
-        background: {
-          color: {
-            value: "transparent",
+        fpsLimit: 120,
+        interactivity: {
+          events: {
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+          },
+          modes: {
+            repulse: {
+              distance: 100,
+              duration: 0.4,
+            },
           },
         },
-        fpsLimit: 60,
         particles: {
           color: {
             value: theme === "dark" ? "#9333ea" : "#7e22ce",
@@ -31,11 +40,18 @@ export default function ParticlesBackground() {
             color: theme === "dark" ? "#9333ea" : "#7e22ce",
             distance: 150,
             enable: true,
-            opacity: 0.5, // Increased opacity for better visibility
-            width: 2,     // Increased width for better visibility
+            opacity: 0.3,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
           },
           move: {
+            direction: "none",
             enable: true,
+            outModes: {
+              default: "bounce",
+            },
             random: false,
             speed: 1,
             straight: false,
@@ -43,18 +59,18 @@ export default function ParticlesBackground() {
           number: {
             density: {
               enable: true,
-              area: 800,
+              value_area: 800,
             },
-            value: 200, // Increased number of particles
+            value: 80,
           },
           opacity: {
-            value: 0.4, // Increased opacity for better visibility
+            value: 0.5,
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 2, max: 5 }, // Increased size range
+            value: { min: 1, max: 3 },
           },
         },
         detectRetina: true,
