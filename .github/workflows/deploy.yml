@@ -33,6 +33,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          # Spotify API credentials for playlist integration
           VITE_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           VITE_SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
 
@@ -42,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/public'
+          path: './dist'  
 
       - name: Create Deployment Status
         id: deployment_status
