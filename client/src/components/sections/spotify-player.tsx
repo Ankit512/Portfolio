@@ -23,15 +23,17 @@ export default function SpotifyPlayer() {
 
       // Use the implicit grant flow
       const authEndpoint = 'https://accounts.spotify.com/authorize';
-      const redirectUri = window.location.origin + window.location.pathname;
-      const scope = 'playlist-read-private playlist-read-collaborative';
+      // Get the full URL including any base path from GitHub Pages
+      const redirectUri = window.location.href.split('#')[0];
+      // Use a more permissive scope
+      const scope = 'playlist-read-public';
 
       // Check if we already have a token in session storage
       let accessToken = sessionStorage.getItem('spotify_access_token');
 
       if (!accessToken) {
         // If no token exists, initiate the auth flow
-        const authUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&response_type=token`;
+        const authUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}&response_type=token&show_dialog=true`;
         window.location.href = authUrl;
         return [];
       }
@@ -49,7 +51,8 @@ export default function SpotifyPlayer() {
 
       if (!response.ok) {
         if (response.status === 401) {
-          // Token expired, clear it and reload to trigger new auth flow
+          // Token expired or invalid, clear it and reload to trigger new auth flow
+          console.log('Token expired, clearing and refreshing...');
           sessionStorage.removeItem('spotify_access_token');
           window.location.reload();
           return [];
@@ -58,6 +61,7 @@ export default function SpotifyPlayer() {
       }
 
       const data = await response.json();
+      console.log('Playlists fetched successfully:', data.items.length);
 
       return data.items.map((playlist: any) => ({
         id: playlist.id,
@@ -78,9 +82,12 @@ export default function SpotifyPlayer() {
       const params = new URLSearchParams(hash.substring(1));
       const accessToken = params.get('access_token');
       if (accessToken) {
+        console.log('Access token obtained, saving to session storage');
         sessionStorage.setItem('spotify_access_token', accessToken);
         // Clean up the URL
         window.location.hash = '';
+        // Reload to trigger a new fetch with the token
+        window.location.reload();
       }
     }
   }, []);
