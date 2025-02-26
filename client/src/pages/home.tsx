@@ -180,7 +180,7 @@ export default function Home() {
               degree="BTech. Computer Science and Engineering"
               period="Jul 2017 - Jul 2021"
               description="Completed Bachelor's in Computer Science with distinction, specializing in software development and artificial intelligence. Developed strong foundation in computational thinking and problem-solving."
-              logo="/images/logos/srm.svg"
+              logo="/images/logos/srm.png"
               coursework={[
                 "Data Structures & Algorithms",
                 "Database Management Systems",
