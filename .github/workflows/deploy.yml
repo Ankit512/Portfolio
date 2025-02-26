@@ -33,6 +33,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          # Base URL for GitHub Pages
+          VITE_BASE_URL: /Portfolio/
           # Spotify API credentials for playlist integration
           VITE_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           VITE_SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}

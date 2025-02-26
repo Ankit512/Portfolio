@@ -24,14 +24,25 @@ export default function DeploymentStatus() {
       const repo = 'Portfolio';
 
       console.log('Fetching deployment status for:', `${owner}/${repo}`);
+
+      // Use GitHub token for authentication
+      const headers = {
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`
+      };
+
       const response = await fetch(
-        `https://api.github.com/repos/${owner}/${repo}/deployments`
+        `https://api.github.com/repos/${owner}/${repo}/deployments`,
+        { headers }
       );
 
       console.log('Deployment API response status:', response.status);
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error('Repository or deployments not found. Please check the repository settings and ensure GitHub Pages is enabled.');
+        }
+        if (response.status === 403) {
+          throw new Error('Access denied. Please check GitHub token permissions.');
         }
         throw new Error(`Failed to fetch deployment status: ${response.statusText}`);
       }
@@ -47,7 +58,10 @@ export default function DeploymentStatus() {
       const latestDeployment = deployments[0];
       console.log('Latest deployment:', latestDeployment.id);
 
-      const statusResponse = await fetch(latestDeployment.statuses_url);
+      const statusResponse = await fetch(
+        latestDeployment.statuses_url,
+        { headers }
+      );
       console.log('Status API response:', statusResponse.status);
 
       if (!statusResponse.ok) {
@@ -58,7 +72,12 @@ export default function DeploymentStatus() {
       console.log('Deployment status:', statusData[0]?.state);
 
       if (statusData.length > 0) {
-        setStatus(statusData[0]);
+        // Ensure environment_url uses the correct base path
+        const status = statusData[0];
+        if (status.environment_url) {
+          status.environment_url = status.environment_url.replace(/\/$/, '') + (import.meta.env.VITE_BASE_URL || '/');
+        }
+        setStatus(status);
         setError(null);
       } else {
         throw new Error('Deployment status not available yet. Please check GitHub Actions tab.');
