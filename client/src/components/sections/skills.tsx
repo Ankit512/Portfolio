@@ -91,7 +91,7 @@ export default function Skills() {
             className="flex flex-col gap-8"
           >
             {/* Radar Chart */}
-            <div className="h-[350px] bg-card/20 rounded-lg border border-border p-4">
+            <div className="h-[350px] bg-card/20 rounded-lg border border-border p-4 mb-4">
               <ResponsiveRadar
                 data={chartData}
                 keys={['Score']}
