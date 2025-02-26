@@ -157,7 +157,7 @@ export default function Home() {
               degree="MSc. Management"
               period="Sep 2024 - Sep 2025"
               description="Will be pursuing a Master's in Management, with specialization in strategic business management and innovation. The program will combine theoretical frameworks with practical business applications, focusing on modern business challenges."
-              logo="/images/logos/ucd.svg"
+              logo="/images/logos/ucd.jpg"
               coursework={[
                 "Business Strategy & Digital Innovation",
                 "Project & Operations Management",
