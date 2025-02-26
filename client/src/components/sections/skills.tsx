@@ -19,7 +19,16 @@ const skillCategories = [
   },
   {
     title: "Data Engineering & Analytics",
-    skills: ["SQL", "ETL Development", "Data Pipeline Design", "Database Migration", "Data Warehousing"],
+    skills: [
+      "SQL",
+      "Oracle DB",
+      "Azure DB",
+      "Power BI",
+      "ETL Development",
+      "Data Pipeline Design",
+      "Database Migration",
+      "Data Warehousing"
+    ],
   }
 ];
 
