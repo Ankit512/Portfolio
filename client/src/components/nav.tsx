@@ -4,7 +4,6 @@ import { useTheme } from "@/components/theme-provider";
 export default function Nav() {
   const { theme } = useTheme();
   const menuItems = [
-    { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#work", label: "Work" },
     { href: "#projects", label: "Projects" },
@@ -17,15 +16,6 @@ export default function Nav() {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
     if (!href) return;
-
-    // If it's the About section, scroll to top
-    if (href === '#about') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      return;
-    }
 
     const element = document.querySelector(href);
     if (element) {

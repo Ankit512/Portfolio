@@ -10,8 +10,8 @@ import SpotifyPlayer from "@/components/sections/spotify-player";
 export default function Home() {
   return (
     <main className="bg-background">
-      {/* Hero/About Section */}
-      <section id="about" className="h-screen flex items-center">
+      {/* Hero Section */}
+      <section className="h-screen flex items-center">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -67,8 +67,144 @@ export default function Home() {
       {/* Experience Section */}
       <Experience />
 
-      {/* Projects Section */}
+      {/* Projects Section - Added */}
       <Projects />
+
+      {/* Featured Project Section */}
+      <section className="section-spacing bg-secondary/5">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <h2 className="text-xl text-muted-foreground mb-4">FEATURED PROJECT</h2>
+            <h3 className="heading-lg">Launched Product</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group relative"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-card/20 rounded-lg border border-border">
+                <img
+                  src="/images/projects/shipmaxx-dashboard.png"
+                  alt="Shipmaxx.in Platform Interface"
+                  className="w-full h-full object-cover object-center rounded-lg hover:scale-105 transition-transform duration-500"
+                  onError={(e) => {
+                    console.error('Image failed to load');
+                    const target = e.target as HTMLImageElement;
+                    target.src = '/images/project-abstract.svg';
+                  }}
+                />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-col justify-center"
+            >
+              <a
+                href="https://shipmaxx.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group-hover:opacity-60 transition-opacity"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <img
+                    src="/images/logos/shipmaxx-new.png"
+                    alt="Shipmaxx"
+                    className="h-12 w-12 object-contain"
+                  />
+                  <h3 className="heading-md flex items-center gap-3">
+                    Shipmaxx.in
+                    <ExternalLink className="h-6 w-6 inline-block opacity-60" />
+                  </h3>
+                </div>
+                <p className="body-md text-muted-foreground">
+                  Shipmaxx is the all-in-one order management software designed to simplify shipping for growing e-commerce businesses.
+                  Seamlessly integrating with Shopify and other online marketplaces, Shipmaxx provides a unified interface to efficiently
+                  manage multi-channel orders. With over a decade of e-commerce expertise, Shipmaxx partners with more than 10 top courier
+                  services, enabling deliveries to over 27,000 pin codes. Streamline your operations, reduce costs, and enhance customer
+                  satisfaction with Shipmaxx. Take the next step in scaling your business—start shipping smarter today.
+                </p>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section className="section-spacing bg-secondary/5">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <h2 className="text-xl text-muted-foreground mb-4">EDUCATION</h2>
+            <h3 className="heading-lg mb-12">Academic Background</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 gap-20">
+            <EducationCard
+              institution="UCD Michael Smurfit Graduate Business School"
+              location="Dublin, Ireland"
+              degree="MSc. Management"
+              period="Sep 2024 - Sep 2025"
+              description="Will be pursuing a Master's in Management, with specialization in strategic business management and innovation. The program will combine theoretical frameworks with practical business applications, focusing on modern business challenges."
+              logo="/images/logos/ucd.png"
+              coursework={[
+                "Business Strategy & Digital Innovation",
+                "Project & Operations Management",
+                "Digital Marketing & Analytics",
+                "Financial Management & Analysis",
+                "Leadership & Organizational Behavior",
+                "Global Business & Market Entry"
+              ]}
+              achievements={[
+                "Graduated with 2:1",
+                "Selected for upcoming Innovation & Entrepreneurship Workshop",
+                "Winner of Business Simulation - BMGT43290 Building Sustainable Supply Chain Advantage",
+                "Runner-Up of EY Case Study competition 2023"
+              ]}
+            />
+
+            <EducationCard
+              institution="SRM Institute of Science and Technology"
+              location="Chennai, India"
+              degree="BTech. Computer Science and Engineering"
+              period="Jul 2017 - Jul 2021"
+              description="Completed Bachelor's in Computer Science with distinction, specializing in software development and artificial intelligence. Developed strong foundation in computational thinking and problem-solving."
+              logo="/images/logos/srm.png"
+              coursework={[
+                "Data Structures & Algorithms",
+                "Database Management Systems",
+                "Machine Learning & AI",
+                "Web Technologies",
+                "Software Engineering",
+                "Cloud Computing"
+              ]}
+              achievements={[
+                "Graduated with Distinction (78.6%, First Class)",
+                "Best Project Award for Final Year Project",
+                "Founder at Think-Digital",
+                "Published research paper on Object Detection using Trigger Word for High Technology Letters (Issue: April 2021)"
+              ]}
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Blog Section */}
       <Blog />
