@@ -51,7 +51,7 @@ const chartData = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-secondary/5">
+    <section id="skills" className="section-spacing bg-secondary/5">
       <div className="container px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <h2 className="text-xl text-neutral-400 mb-4">MY SKILLS</h2>
+          <h2 className="text-xl text-muted-foreground mb-4">MY SKILLS</h2>
           <h3 className="heading-lg mb-6">Building products for humans</h3>
           <p className="body-md max-w-2xl">
             With my startup background, I bring a lean mindset for building products fast. My 
@@ -76,7 +76,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="h-[350px] bg-neutral-900/20 rounded-lg border border-neutral-800 p-4"
+            className="h-[350px] bg-card/20 rounded-lg border border-border p-4"
           >
             <ResponsiveRadar
               data={chartData}
@@ -121,7 +121,7 @@ export default function Skills() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="bg-neutral-900/20 border border-neutral-800">
+                <Card className="bg-card/20 border border-border">
                   <CardContent className="p-4">
                     <h3 className="text-lg font-semibold mb-3">{category.title}</h3>
                     <div className="flex flex-wrap gap-2">
