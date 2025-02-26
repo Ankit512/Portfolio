@@ -25,7 +25,7 @@ export default function SpotifyPlayer() {
 
   if (isLoading) {
     return (
-      <section className="section-spacing bg-secondary/5">
+      <section id="spotify" className="section-spacing bg-secondary/5">
         <div className="container">
           <div className="animate-pulse">
             <div className="h-8 w-48 bg-muted rounded mb-4"></div>
@@ -42,7 +42,7 @@ export default function SpotifyPlayer() {
 
   if (!playlists?.length) {
     return (
-      <section className="section-spacing bg-secondary/5">
+      <section id="spotify" className="section-spacing bg-secondary/5">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -60,7 +60,7 @@ export default function SpotifyPlayer() {
   }
 
   return (
-    <section className="section-spacing bg-secondary/5">
+    <section id="spotify" className="section-spacing bg-secondary/5">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
