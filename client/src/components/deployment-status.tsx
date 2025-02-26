@@ -25,10 +25,10 @@ export default function DeploymentStatus() {
 
       console.log('Fetching deployment status for:', `${owner}/${repo}`);
 
-      // Use GitHub token for authentication
+      // Use the new token for authentication
       const headers = {
         'Accept': 'application/vnd.github.v3+json',
-        'Authorization': `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`
+        'Authorization': `Bearer ${import.meta.env.VITE_PORTFOLIO_DEPLOY_TOKEN}`
       };
 
       const response = await fetch(

@@ -38,6 +38,8 @@ jobs:
           # Spotify API credentials for playlist integration
           VITE_SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           VITE_SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          # GitHub token for deployment status
+          VITE_PORTFOLIO_DEPLOY_TOKEN: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
