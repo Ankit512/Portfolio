@@ -44,8 +44,9 @@ export default function Home() {
               className="body-lg max-w-2xl"
             >
               With my startup background, I bring a lean mindset for building products fast.
-              My technical expertise in Generative AI and Data Strategy enables me to develop
-              impactful products utilizing machine learning, generative AI, and big data solutions.
+              My technical expertise and passion for generative AI and data visualization enable me to develop
+              impactful products utilizing machine learning concepts, generative AI, and data engineering solutions
+              that seamlessly align technical execution with stakeholder objectives, setting me apart in the market.
             </motion.p>
           </motion.div>
         </div>

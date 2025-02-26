@@ -76,9 +76,7 @@ export default function Skills() {
           <h2 className="text-xl text-muted-foreground">MY SKILLS</h2>
           <h3 className="heading-lg mb-6">Building products for humans</h3>
           <p className="body-md max-w-2xl">
-            With my startup background, I bring a lean mindset for building products fast. My 
-            technical expertise in Generative AI and Data Strategy enables me to develop
-            impactful products utilizing machine learning, generative AI, and big data solutions.
+            With my startup background, I bring a lean mindset for building products fast. My technical expertise and passion for generative AI and data visualization enable me to develop impactful products utilizing machine learning concepts, generative AI, and data engineering solutions that seamlessly align technical execution with stakeholder objectives, setting me apart in the market.
           </p>
         </motion.div>
 
@@ -151,9 +149,9 @@ export default function Skills() {
                   <h3 className="text-lg font-semibold mb-3">{aiSkills.title}</h3>
                   <div className="flex flex-wrap gap-2">
                     {aiSkills.skills.map((skill, i) => (
-                      <Badge 
-                        key={i} 
-                        variant="secondary" 
+                      <Badge
+                        key={i}
+                        variant="secondary"
                         className="text-sm py-1 hover:bg-purple-600/20 transition-colors cursor-default"
                       >
                         {skill}
@@ -179,9 +177,9 @@ export default function Skills() {
                     <h3 className="text-lg font-semibold mb-3">{category.title}</h3>
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, i) => (
-                        <Badge 
-                          key={i} 
-                          variant="secondary" 
+                        <Badge
+                          key={i}
+                          variant="secondary"
                           className="text-sm py-1 hover:bg-purple-600/20 transition-colors cursor-default"
                         >
                           {skill}
