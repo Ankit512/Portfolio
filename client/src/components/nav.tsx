@@ -35,7 +35,6 @@ export default function Nav() {
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className="group"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -44,7 +43,7 @@ export default function Nav() {
             <img 
               src="/images/ankit-memoji-new.png" 
               alt="Ankit's Memoji" 
-              className="w-16 h-16 object-contain mix-blend-normal"
+              className="w-20 h-20 object-contain mix-blend-normal"
               onError={(e) => {
                 console.error('Image failed to load');
                 const target = e.target as HTMLImageElement;
