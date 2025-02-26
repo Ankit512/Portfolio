@@ -13,7 +13,7 @@ export default function ParticlesBackground() {
 
   return (
     <Particles
-      className="fixed inset-0 -z-10"
+      className="fixed inset-0 z-[-10]" // corrected z-index for better layering
       id="tsparticles"
       init={particlesInit}
       options={{
@@ -31,8 +31,8 @@ export default function ParticlesBackground() {
             color: theme === "dark" ? "#9333ea" : "#7e22ce",
             distance: 150,
             enable: true,
-            opacity: 0.2,
-            width: 1,
+            opacity: 0.5, // Increased opacity for better visibility
+            width: 2,     // Increased width for better visibility
           },
           move: {
             enable: true,
@@ -45,16 +45,16 @@ export default function ParticlesBackground() {
               enable: true,
               area: 800,
             },
-            value: 80,
+            value: 200, // Increased number of particles
           },
           opacity: {
-            value: 0.2,
+            value: 0.4, // Increased opacity for better visibility
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 3 },
+            value: { min: 2, max: 5 }, // Increased size range
           },
         },
         detectRetina: true,
