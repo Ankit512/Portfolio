@@ -1,18 +1,14 @@
 import { useCallback } from "react";
 import { useTheme } from "@/components/theme-provider";
-import { loadFull } from "tsparticles";
-import Particles from "react-tsparticles";
-import type { Container, Engine } from "tsparticles-engine";
+import { Engine } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
+import Particles from "@tsparticles/react";
 
 export default function ParticlesBackground() {
   const { theme } = useTheme();
-  
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
-  }, []);
 
-  const particlesLoaded = useCallback(async (container: Container | undefined) => {
-    console.log("Particles container loaded", container);
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
   }, []);
 
   return (
@@ -20,7 +16,6 @@ export default function ParticlesBackground() {
       className="fixed inset-0 -z-10"
       id="tsparticles"
       init={particlesInit}
-      loaded={particlesLoaded}
       options={{
         background: {
           color: {
