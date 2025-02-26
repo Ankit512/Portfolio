@@ -61,7 +61,7 @@ export default function Home() {
       <Projects />
 
       {/* Featured Project Section */}
-      <section className="section-spacing">
+      <section className="section-spacing bg-secondary/5">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section className="section-spacing">
+      <section className="section-spacing bg-secondary/5">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
