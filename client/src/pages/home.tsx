@@ -9,19 +9,19 @@ export default function Home() {
   return (
     <main className="bg-background">
       {/* Hero Section */}
-      <section className="h-screen flex items-center">
-        <div className="container">
+      <section className="min-h-screen flex items-center justify-center">
+        <div className="container px-6 py-32 md:py-48">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-[90vw]"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-[85vw] md:max-w-[65vw] mx-auto text-center"
           >
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-4 tracking-tight"
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-lg md:text-xl font-medium tracking-wide text-muted-foreground/80 mb-6"
             >
               ANKIT KUMAR
             </motion.h2>
@@ -29,19 +29,21 @@ export default function Home() {
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="heading-xl mb-8"
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-4xl md:text-6xl font-semibold leading-tight mb-12"
             >
               Product Manager for
               <br />
-              <span className="text-purple-600">AI & Data</span>
+              <span className="bg-gradient-to-r from-purple-600 to-purple-500 bg-clip-text text-transparent">
+                AI & Data
+              </span>
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl space-y-6"
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="text-xl md:text-2xl text-muted-foreground/90 max-w-2xl mx-auto space-y-8 font-light"
             >
               <span className="block">
                 Currently serving as a Volunteer Product Manager for AI at Oakyard.
@@ -54,7 +56,7 @@ export default function Home() {
               <span className="block">
                 With an entrepreneurial spirit and analytical mindset, I've ‍built impactful products utilizing machine learning, generative AI, and data engineering solutions.
               </span>
-            </motion.p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -69,17 +71,17 @@ export default function Home() {
       <Projects />
 
       {/* Featured Project Section */}
-      <section className="section-spacing bg-secondary/5">
-        <div className="container">
+      <section className="py-24 md:py-32 bg-secondary/5">
+        <div className="container px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
+            transition={{ duration: 0.8 }}
+            className="mb-16 md:mb-24"
           >
-            <h2 className="text-xl text-muted-foreground mb-4">FEATURED PROJECT</h2>
-            <h3 className="heading-lg">Launched Product</h3>
+            <h2 className="text-lg text-muted-foreground/80 mb-4 font-medium tracking-wide">FEATURED PROJECT</h2>
+            <h3 className="text-3xl md:text-4xl font-semibold">Launched Product</h3>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
