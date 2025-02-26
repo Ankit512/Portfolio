@@ -15,6 +15,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      deployment_id: ${{ steps.deployment_status.outputs.result }}
 
     steps:
       - uses: actions/checkout@v4
