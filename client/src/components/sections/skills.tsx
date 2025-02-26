@@ -29,23 +29,23 @@ const skillCategories = [
 const chartData = [
   {
     skill: "Product Strategy",
-    value: 68,
+    Score: 68,
   },
   {
     skill: "Product Design",
-    value: 65,
+    Score: 65,
   },
   {
     skill: "Market Research",
-    value: 65,
+    Score: 65,
   },
   {
     skill: "Data Engineering",
-    value: 60,
+    Score: 60,
   },
   {
     skill: "AI & ML",
-    value: 50,
+    Score: 50,
   }
 ];
 
@@ -80,7 +80,7 @@ export default function Skills() {
           >
             <ResponsiveRadar
               data={chartData}
-              keys={['value']}
+              keys={['Score']}
               indexBy="skill"
               maxValue={100}
               margin={{ top: 50, right: 60, bottom: 40, left: 60 }}
@@ -98,8 +98,14 @@ export default function Skills() {
               theme={{
                 background: "transparent",
                 text: {
-                  fill: "#a3a3a3",
+                  fill: "#000000",
                   fontSize: 11
+                },
+                tooltip: {
+                  container: {
+                    background: '#ffffff',
+                    color: '#000000',
+                  }
                 },
                 grid: {
                   line: {
