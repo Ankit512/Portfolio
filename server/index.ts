@@ -60,10 +60,10 @@ app.use((req, res, next) => {
     // Production mode
     console.log('Setting up production server');
 
-    // Serve static files from dist
-    const distPath = path.join(process.cwd(), 'dist');
+    // Serve static files from dist/public
+    const distPath = path.join(process.cwd(), 'dist', 'public');
     if (!fs.existsSync(distPath)) {
-      console.error('Error: dist directory not found. Run `npm run build` first');
+      console.error('Error: dist/public directory not found. Run `npm run build` first');
       process.exit(1);
     }
     app.use(express.static(distPath));
@@ -73,7 +73,7 @@ app.use((req, res, next) => {
       if (req.path.startsWith('/api')) {
         next(); // Let API routes be handled by the API router
       } else {
-        const indexPath = path.join(process.cwd(), 'dist', 'index.html');
+        const indexPath = path.join(process.cwd(), 'dist', 'public', 'index.html');
         if (!fs.existsSync(indexPath)) {
           console.error('Error: index.html not found in dist directory');
           return res.status(500).send('Error: Application not built properly. Please ensure the application is built for production.');
