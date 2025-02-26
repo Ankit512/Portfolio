@@ -8,19 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// In production, serve static files from the dist directory
-if (process.env.NODE_ENV === 'production') {
-  console.log('Running in production mode');
-  const distPath = path.join(process.cwd(), 'dist');
-
-  // Check if dist directory exists
-  if (!fs.existsSync(distPath)) {
-    console.error('Error: dist directory not found. Please build the project first.');
-    process.exit(1);
-  }
-
-  console.log('Serving static files from:', distPath);
-  app.use(express.static(distPath));
+// Set NODE_ENV if not set
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = 'production';
 }
 
 // Logging middleware
@@ -70,26 +60,25 @@ app.use((req, res, next) => {
     // Production mode
     console.log('Setting up production server');
 
+    // Serve static files from dist
+    const distPath = path.join(process.cwd(), 'dist');
+    if (!fs.existsSync(distPath)) {
+      console.error('Error: dist directory not found. Run `npm run build` first');
+      process.exit(1);
+    }
+    app.use(express.static(distPath));
+
     // Handle all routes in production
     app.get('*', (req, res, next) => {
       if (req.path.startsWith('/api')) {
         next(); // Let API routes be handled by the API router
       } else {
         const indexPath = path.join(process.cwd(), 'dist', 'index.html');
-        console.log('Attempting to serve:', indexPath);
-
-        // Check if index.html exists
         if (!fs.existsSync(indexPath)) {
           console.error('Error: index.html not found in dist directory');
-          return res.status(500).send('Error: Application not built properly');
+          return res.status(500).send('Error: Application not built properly. Please ensure the application is built for production.');
         }
-
-        res.sendFile(indexPath, (err) => {
-          if (err) {
-            console.error('Error serving index.html:', err);
-            res.status(500).send('Error loading page');
-          }
-        });
+        res.sendFile(indexPath);
       }
     });
   }
