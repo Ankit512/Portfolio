@@ -20,8 +20,8 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="dark">
-        <div className="min-h-screen bg-background text-foreground">
+      <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+        <div className="min-h-screen bg-background text-foreground antialiased">
           <Nav />
           <Router />
           <ThemeToggle />
