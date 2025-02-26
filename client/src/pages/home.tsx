@@ -82,7 +82,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="group relative"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-background rounded-lg border border-neutral-800">
+              <div className="aspect-[4/3] overflow-hidden bg-card/20 rounded-lg border border-border">
                 <img
                   src="/images/projects/shipmaxx-dashboard.png"
                   alt="Shipmaxx.in Platform Interface"
@@ -91,9 +91,6 @@ export default function Home() {
                     console.error('Image failed to load');
                     const target = e.target as HTMLImageElement;
                     target.src = '/images/project-abstract.svg';
-                  }}
-                  onLoad={() => {
-                    console.log('Image loaded successfully');
                   }}
                 />
               </div>
@@ -353,7 +350,7 @@ function EducationCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="group bg-neutral-900/20 rounded-lg p-8 border border-neutral-800"
+      className="group bg-card/20 rounded-lg p-8 border border-border"
     >
       <div className="flex items-center gap-4 mb-6">
         <img src={logo} alt={institution} className="h-12 w-12" />

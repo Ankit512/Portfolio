@@ -50,7 +50,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col bg-neutral-900/20 border border-neutral-800">
+              <Card className="h-full flex flex-col bg-card/20 border border-border">
                 <CardHeader>
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                 </CardHeader>
