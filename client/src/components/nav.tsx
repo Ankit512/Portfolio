@@ -8,6 +8,7 @@ export default function Nav() {
     { href: "#work", label: "Work" },
     { href: "#projects", label: "Projects" },
     { href: "#blog", label: "Blog" },
+    { href: "#spotify", label: "Spotify" },
     { href: "#contact", label: "Contact" }
   ];
 

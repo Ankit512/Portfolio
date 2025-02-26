@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
+import { SiSpotify } from "react-icons/si";
 import Blog from "@/components/sections/blog";
 import Skills from "@/components/sections/skills";
 import Experience from "@/components/sections/experience";
@@ -119,10 +120,10 @@ export default function Home() {
                 className="group-hover:opacity-60 transition-opacity"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <img 
-                    src="/images/logos/shipmaxx-new.png" 
-                    alt="Shipmaxx" 
-                    className="h-12 w-12 object-contain" 
+                  <img
+                    src="/images/logos/shipmaxx-new.png"
+                    alt="Shipmaxx"
+                    className="h-12 w-12 object-contain"
                   />
                   <h3 className="heading-md flex items-center gap-3">
                     Shipmaxx.in
@@ -245,6 +246,11 @@ export default function Home() {
                 href="mailto:ankit512.kumar@gmail.com"
                 icon={Mail}
                 label="Email"
+              />
+              <SocialLink
+                href="https://open.spotify.com/user/6oauivyjugmc8akmeekrkeezg"
+                icon={SiSpotify}
+                label="Spotify"
               />
             </div>
           </motion.div>
